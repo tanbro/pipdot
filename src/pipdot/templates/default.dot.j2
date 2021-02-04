@@ -1,0 +1,86 @@
+digraph {
+
+    // nodes
+
+    subgraph {
+{%- for dist in system_distributions %}
+    "{{ dist.key }}" [
+        label="{{ dist.project_name }}\n{{ dist.version }}",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+{%- endfor %}
+    }
+
+    subgraph {
+{%- for dist in user_distributions %}
+    "{{ dist.key }}" [
+        label="{{ dist.project_name }}\n{{ dist.version }}",
+        color="#61c2c5", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+{%- endfor %}
+    }
+
+    subgraph {
+{%- for dist in local_distributions %}
+    "{{ dist.key }}" [
+        label="{{ dist.project_name }}\n{{ dist.version }}",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+{%- endfor %}
+    }
+
+    subgraph {
+{%- for dist in editable_distributions %}
+    "{{ dist.key }}" [
+        label="{{ dist.project_name }}\n{{ dist.version }}",
+        color="#51bf5b",
+        fillcolor="#91b5c9",
+        style="filled,setlinewidth(6)"
+    ];
+{%- endfor %}
+    }
+
+    // edges
+
+{%- for dist in installed_distributions %}
+
+    {%- if show_extras -%}
+        {%- set key_extras_map={} -%}
+
+        {%- for require in dist.requires() -%}
+            {%- if require.key not in key_extras_map -%}
+                {%- do key_extras_map.update({require.key:[""]}) -%}
+            {%- endif -%}
+        {%- endfor %}
+
+        {%- for extra in dist.extras -%}
+            {% for require in dist.requires((extra, )) %}
+                {%- if require.key in key_extras_map -%}
+                    {%- do key_extras_map[require.key].append(extra) -%}
+                {%- else -%}
+                    {%- do key_extras_map.update({require.key:[extra]}) -%}
+                {%- endif -%}
+            {%- endfor -%}
+        {%- endfor -%}
+
+        {%- for dep_key, extras in key_extras_map.items() %}
+    "{{ dist.key }}" -> "{{ dep_key }}" [
+        color={%- if "" in extras -%}"#61c2c5"{%- else -%}"#cfbf57ff"{%- endif-%},
+        label={%- if show_extras_label -%}"{{ extras | reject("eq", "") | join(',') }}"{%- else -%}""{%- endif -%}
+    ];
+        {%- endfor %}
+
+    {%- else -%}
+        {%- for require in dist.requires() %}
+    "{{ dist.key }}" -> "{{ require.key }}";
+        {%- endfor %}
+    {%- endif -%}
+
+{%- endfor %}
+
+}
