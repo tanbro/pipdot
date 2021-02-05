@@ -1,0 +1,1336 @@
+digraph {
+    rankdir = "LR";
+
+
+    "webencodings" [
+        label="webencodings\n0.5.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "wcwidth" [
+        label="wcwidth\n0.2.5",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "urllib3" [
+        label="urllib3\n1.26.3",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "twine" [
+        label="twine\n3.3.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "traitlets" [
+        label="traitlets\n5.0.5",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "tqdm" [
+        label="tqdm\n4.56.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "tornado" [
+        label="tornado\n6.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "toml" [
+        label="toml\n0.10.2",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "six" [
+        label="six\n1.15.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "setuptools" [
+        label="setuptools\n44.0.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "secretstorage" [
+        label="SecretStorage\n3.3.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "rfc3986" [
+        label="rfc3986\n1.4.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "requests" [
+        label="requests\n2.25.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "requests-toolbelt" [
+        label="requests-toolbelt\n0.9.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "readme-renderer" [
+        label="readme-renderer\n28.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pyzmq" [
+        label="pyzmq\n22.0.2",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "python-dateutil" [
+        label="python-dateutil\n2.8.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pyparsing" [
+        label="pyparsing\n2.4.7",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pygments" [
+        label="Pygments\n2.7.4",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pycparser" [
+        label="pycparser\n2.20",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pycodestyle" [
+        label="pycodestyle\n2.6.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ptyprocess" [
+        label="ptyprocess\n0.7.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "prompt-toolkit" [
+        label="prompt-toolkit\n3.0.14",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pkginfo" [
+        label="pkginfo\n1.7.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pkg-resources" [
+        label="pkg-resources\n0.0.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pip" [
+        label="pip\n20.0.2",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pickleshare" [
+        label="pickleshare\n0.7.5",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pexpect" [
+        label="pexpect\n4.8.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "parso" [
+        label="parso\n0.8.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "packaging" [
+        label="packaging\n20.9",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "markupsafe" [
+        label="MarkupSafe\n1.1.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "keyring" [
+        label="keyring\n22.0.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jupyter-core" [
+        label="jupyter-core\n4.7.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jupyter-client" [
+        label="jupyter-client\n6.1.11",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jinja2" [
+        label="Jinja2\n2.11.3",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jeepney" [
+        label="jeepney\n0.6.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jedi" [
+        label="jedi\n0.18.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipython" [
+        label="ipython\n7.20.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipython-genutils" [
+        label="ipython-genutils\n0.2.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipykernel" [
+        label="ipykernel\n5.4.3",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "idna" [
+        label="idna\n2.10",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "docutils" [
+        label="docutils\n0.16",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "decorator" [
+        label="decorator\n4.4.2",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "cryptography" [
+        label="cryptography\n3.3.1",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "colorama" [
+        label="colorama\n0.4.4",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "chardet" [
+        label="chardet\n4.0.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "cffi" [
+        label="cffi\n1.14.4",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "certifi" [
+        label="certifi\n2020.12.5",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "bleach" [
+        label="bleach\n3.3.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "backcall" [
+        label="backcall\n0.2.0",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "autopep8" [
+        label="autopep8\n1.5.5",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pipdot" [
+        label="pipdot\n0.1.dev5+g0b50457.d20210205",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "webencodings" [
+        label="webencodings\n0.5.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "wcwidth" [
+        label="wcwidth\n0.2.5",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "urllib3" [
+        label="urllib3\n1.26.3",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "twine" [
+        label="twine\n3.3.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "traitlets" [
+        label="traitlets\n5.0.5",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "tqdm" [
+        label="tqdm\n4.56.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "tornado" [
+        label="tornado\n6.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "toml" [
+        label="toml\n0.10.2",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "six" [
+        label="six\n1.15.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "setuptools" [
+        label="setuptools\n44.0.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "secretstorage" [
+        label="SecretStorage\n3.3.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "rfc3986" [
+        label="rfc3986\n1.4.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "requests" [
+        label="requests\n2.25.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "requests-toolbelt" [
+        label="requests-toolbelt\n0.9.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "readme-renderer" [
+        label="readme-renderer\n28.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pyzmq" [
+        label="pyzmq\n22.0.2",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "python-dateutil" [
+        label="python-dateutil\n2.8.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pyparsing" [
+        label="pyparsing\n2.4.7",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pygments" [
+        label="Pygments\n2.7.4",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pycparser" [
+        label="pycparser\n2.20",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pycodestyle" [
+        label="pycodestyle\n2.6.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ptyprocess" [
+        label="ptyprocess\n0.7.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "prompt-toolkit" [
+        label="prompt-toolkit\n3.0.14",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pkginfo" [
+        label="pkginfo\n1.7.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pkg-resources" [
+        label="pkg-resources\n0.0.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pip" [
+        label="pip\n20.0.2",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pickleshare" [
+        label="pickleshare\n0.7.5",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pexpect" [
+        label="pexpect\n4.8.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "parso" [
+        label="parso\n0.8.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "packaging" [
+        label="packaging\n20.9",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "markupsafe" [
+        label="MarkupSafe\n1.1.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "keyring" [
+        label="keyring\n22.0.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jupyter-core" [
+        label="jupyter-core\n4.7.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jupyter-client" [
+        label="jupyter-client\n6.1.11",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jinja2" [
+        label="Jinja2\n2.11.3",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jeepney" [
+        label="jeepney\n0.6.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jedi" [
+        label="jedi\n0.18.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipython" [
+        label="ipython\n7.20.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipython-genutils" [
+        label="ipython-genutils\n0.2.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipykernel" [
+        label="ipykernel\n5.4.3",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "idna" [
+        label="idna\n2.10",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "docutils" [
+        label="docutils\n0.16",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "decorator" [
+        label="decorator\n4.4.2",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "cryptography" [
+        label="cryptography\n3.3.1",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "colorama" [
+        label="colorama\n0.4.4",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "chardet" [
+        label="chardet\n4.0.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "cffi" [
+        label="cffi\n1.14.4",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "certifi" [
+        label="certifi\n2020.12.5",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "bleach" [
+        label="bleach\n3.3.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "backcall" [
+        label="backcall\n0.2.0",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "autopep8" [
+        label="autopep8\n1.5.5",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pipdot" [
+        label="pipdot\n0.1.dev5+g0b50457.d20210205",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "webencodings" [
+        label="webencodings\n0.5.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "wcwidth" [
+        label="wcwidth\n0.2.5",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "urllib3" [
+        label="urllib3\n1.26.3",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "twine" [
+        label="twine\n3.3.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "traitlets" [
+        label="traitlets\n5.0.5",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "tqdm" [
+        label="tqdm\n4.56.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "tornado" [
+        label="tornado\n6.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "toml" [
+        label="toml\n0.10.2",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "six" [
+        label="six\n1.15.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "setuptools" [
+        label="setuptools\n44.0.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "secretstorage" [
+        label="SecretStorage\n3.3.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "rfc3986" [
+        label="rfc3986\n1.4.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "requests" [
+        label="requests\n2.25.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "requests-toolbelt" [
+        label="requests-toolbelt\n0.9.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "readme-renderer" [
+        label="readme-renderer\n28.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pyzmq" [
+        label="pyzmq\n22.0.2",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "python-dateutil" [
+        label="python-dateutil\n2.8.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pyparsing" [
+        label="pyparsing\n2.4.7",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pygments" [
+        label="Pygments\n2.7.4",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pycparser" [
+        label="pycparser\n2.20",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pycodestyle" [
+        label="pycodestyle\n2.6.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ptyprocess" [
+        label="ptyprocess\n0.7.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "prompt-toolkit" [
+        label="prompt-toolkit\n3.0.14",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pkginfo" [
+        label="pkginfo\n1.7.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pkg-resources" [
+        label="pkg-resources\n0.0.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pip" [
+        label="pip\n20.0.2",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pickleshare" [
+        label="pickleshare\n0.7.5",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pexpect" [
+        label="pexpect\n4.8.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "parso" [
+        label="parso\n0.8.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "packaging" [
+        label="packaging\n20.9",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "markupsafe" [
+        label="MarkupSafe\n1.1.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "keyring" [
+        label="keyring\n22.0.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jupyter-core" [
+        label="jupyter-core\n4.7.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jupyter-client" [
+        label="jupyter-client\n6.1.11",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jinja2" [
+        label="Jinja2\n2.11.3",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jeepney" [
+        label="jeepney\n0.6.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "jedi" [
+        label="jedi\n0.18.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipython" [
+        label="ipython\n7.20.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipython-genutils" [
+        label="ipython-genutils\n0.2.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "ipykernel" [
+        label="ipykernel\n5.4.3",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "idna" [
+        label="idna\n2.10",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "docutils" [
+        label="docutils\n0.16",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "decorator" [
+        label="decorator\n4.4.2",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "cryptography" [
+        label="cryptography\n3.3.1",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "colorama" [
+        label="colorama\n0.4.4",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "chardet" [
+        label="chardet\n4.0.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "cffi" [
+        label="cffi\n1.14.4",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "certifi" [
+        label="certifi\n2020.12.5",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "bleach" [
+        label="bleach\n3.3.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "backcall" [
+        label="backcall\n0.2.0",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "autopep8" [
+        label="autopep8\n1.5.5",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pipdot" [
+        label="pipdot\n0.1.dev5+g0b50457.d20210205",
+        color="#8383cc",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+    "pipdot" [
+        label="pipdot\n0.1.dev5+g0b50457.d20210205",
+        color="#51bf5b",
+        fillcolor="#91b5c9",
+        style="filled,setlinewidth(6)"
+    ];
+
+
+    "urllib3" -> "brotlipy" [
+        color="#cfbf57ff",
+        label="brotli"];
+    "urllib3" -> "idna" [
+        color="#cfbf57ff",
+        label="secure"];
+    "urllib3" -> "pyopenssl" [
+        color="#cfbf57ff",
+        label="secure"];
+    "urllib3" -> "cryptography" [
+        color="#cfbf57ff",
+        label="secure"];
+    "urllib3" -> "certifi" [
+        color="#cfbf57ff",
+        label="secure"];
+    "urllib3" -> "pysocks" [
+        color="#cfbf57ff",
+        label="socks"];
+    "twine" -> "colorama" [
+        color="#61c2c5",
+        label=""];
+    "twine" -> "readme-renderer" [
+        color="#61c2c5",
+        label=""];
+    "twine" -> "requests" [
+        color="#61c2c5",
+        label=""];
+    "twine" -> "tqdm" [
+        color="#61c2c5",
+        label=""];
+    "twine" -> "keyring" [
+        color="#61c2c5",
+        label=""];
+    "twine" -> "rfc3986" [
+        color="#61c2c5",
+        label=""];
+    "twine" -> "requests-toolbelt" [
+        color="#61c2c5",
+        label=""];
+    "twine" -> "pkginfo" [
+        color="#61c2c5",
+        label=""];
+    "twine" -> "setuptools" [
+        color="#61c2c5",
+        label=""];
+    "traitlets" -> "ipython-genutils" [
+        color="#61c2c5",
+        label="test"];
+    "traitlets" -> "pytest" [
+        color="#cfbf57ff",
+        label="test"];
+    "tqdm" -> "wheel" [
+        color="#cfbf57ff",
+        label="dev"];
+    "tqdm" -> "twine" [
+        color="#cfbf57ff",
+        label="dev"];
+    "tqdm" -> "py-make" [
+        color="#cfbf57ff",
+        label="dev"];
+    "tqdm" -> "requests" [
+        color="#cfbf57ff",
+        label="telegram"];
+    "secretstorage" -> "jeepney" [
+        color="#61c2c5",
+        label=""];
+    "secretstorage" -> "cryptography" [
+        color="#61c2c5",
+        label=""];
+    "rfc3986" -> "idna" [
+        color="#cfbf57ff",
+        label="idna2008"];
+    "requests" -> "chardet" [
+        color="#61c2c5",
+        label="security,socks"];
+    "requests" -> "certifi" [
+        color="#61c2c5",
+        label="security,socks"];
+    "requests" -> "urllib3" [
+        color="#61c2c5",
+        label="security,socks"];
+    "requests" -> "idna" [
+        color="#61c2c5",
+        label="security,socks"];
+    "requests" -> "pyopenssl" [
+        color="#cfbf57ff",
+        label="security"];
+    "requests" -> "cryptography" [
+        color="#cfbf57ff",
+        label="security"];
+    "requests" -> "pysocks" [
+        color="#cfbf57ff",
+        label="socks"];
+    "requests-toolbelt" -> "requests" [
+        color="#61c2c5",
+        label=""];
+    "readme-renderer" -> "six" [
+        color="#61c2c5",
+        label="md"];
+    "readme-renderer" -> "bleach" [
+        color="#61c2c5",
+        label="md"];
+    "readme-renderer" -> "docutils" [
+        color="#61c2c5",
+        label="md"];
+    "readme-renderer" -> "pygments" [
+        color="#61c2c5",
+        label="md"];
+    "readme-renderer" -> "cmarkgfm" [
+        color="#cfbf57ff",
+        label="md"];
+    "python-dateutil" -> "six" [
+        color="#61c2c5",
+        label=""];
+    "prompt-toolkit" -> "wcwidth" [
+        color="#61c2c5",
+        label=""];
+    "pkginfo" -> "nose" [
+        color="#cfbf57ff",
+        label="testing"];
+    "pkginfo" -> "coverage" [
+        color="#cfbf57ff",
+        label="testing"];
+    "pexpect" -> "ptyprocess" [
+        color="#61c2c5",
+        label=""];
+    "parso" -> "mypy" [
+        color="#cfbf57ff",
+        label="qa"];
+    "parso" -> "flake8" [
+        color="#cfbf57ff",
+        label="qa"];
+    "parso" -> "docopt" [
+        color="#cfbf57ff",
+        label="testing"];
+    "parso" -> "pytest" [
+        color="#cfbf57ff",
+        label="testing"];
+    "packaging" -> "pyparsing" [
+        color="#61c2c5",
+        label=""];
+    "keyring" -> "jeepney" [
+        color="#61c2c5",
+        label="docs,testing"];
+    "keyring" -> "secretstorage" [
+        color="#61c2c5",
+        label="docs,testing"];
+    "keyring" -> "jaraco.packaging" [
+        color="#cfbf57ff",
+        label="docs"];
+    "keyring" -> "rst.linker" [
+        color="#cfbf57ff",
+        label="docs"];
+    "keyring" -> "sphinx" [
+        color="#cfbf57ff",
+        label="docs"];
+    "keyring" -> "pytest-black" [
+        color="#cfbf57ff",
+        label="testing"];
+    "keyring" -> "pytest" [
+        color="#cfbf57ff",
+        label="testing"];
+    "keyring" -> "pytest-mypy" [
+        color="#cfbf57ff",
+        label="testing"];
+    "keyring" -> "pytest-flake8" [
+        color="#cfbf57ff",
+        label="testing"];
+    "keyring" -> "pytest-cov" [
+        color="#cfbf57ff",
+        label="testing"];
+    "keyring" -> "pytest-enabler" [
+        color="#cfbf57ff",
+        label="testing"];
+    "keyring" -> "pytest-checkdocs" [
+        color="#cfbf57ff",
+        label="testing"];
+    "jupyter-core" -> "traitlets" [
+        color="#61c2c5",
+        label=""];
+    "jupyter-client" -> "tornado" [
+        color="#61c2c5",
+        label="doc,test"];
+    "jupyter-client" -> "traitlets" [
+        color="#61c2c5",
+        label="doc,test"];
+    "jupyter-client" -> "pyzmq" [
+        color="#61c2c5",
+        label="doc,test"];
+    "jupyter-client" -> "python-dateutil" [
+        color="#61c2c5",
+        label="doc,test"];
+    "jupyter-client" -> "jupyter-core" [
+        color="#61c2c5",
+        label="doc,test"];
+    "jupyter-client" -> "sphinx-rtd-theme" [
+        color="#cfbf57ff",
+        label="doc"];
+    "jupyter-client" -> "sphinxcontrib-github-alt" [
+        color="#cfbf57ff",
+        label="doc"];
+    "jupyter-client" -> "sphinx" [
+        color="#cfbf57ff",
+        label="doc"];
+    "jupyter-client" -> "ipykernel" [
+        color="#cfbf57ff",
+        label="test"];
+    "jupyter-client" -> "mock" [
+        color="#cfbf57ff",
+        label="test"];
+    "jupyter-client" -> "pytest-asyncio" [
+        color="#cfbf57ff",
+        label="test"];
+    "jupyter-client" -> "pytest-timeout" [
+        color="#cfbf57ff",
+        label="test"];
+    "jupyter-client" -> "async-generator" [
+        color="#cfbf57ff",
+        label="test"];
+    "jupyter-client" -> "ipython" [
+        color="#cfbf57ff",
+        label="test"];
+    "jupyter-client" -> "pytest" [
+        color="#cfbf57ff",
+        label="test"];
+    "jupyter-client" -> "jedi" [
+        color="#cfbf57ff",
+        label="test"];
+    "jinja2" -> "markupsafe" [
+        color="#61c2c5",
+        label="i18n"];
+    "jinja2" -> "babel" [
+        color="#cfbf57ff",
+        label="i18n"];
+    "jeepney" -> "testpath" [
+        color="#cfbf57ff",
+        label="test"];
+    "jeepney" -> "pytest-trio" [
+        color="#cfbf57ff",
+        label="test"];
+    "jeepney" -> "pytest" [
+        color="#cfbf57ff",
+        label="test"];
+    "jeepney" -> "pytest-asyncio" [
+        color="#cfbf57ff",
+        label="test"];
+    "jeepney" -> "trio" [
+        color="#cfbf57ff",
+        label="test"];
+    "jedi" -> "parso" [
+        color="#61c2c5",
+        label="qa,testing"];
+    "jedi" -> "mypy" [
+        color="#cfbf57ff",
+        label="qa"];
+    "jedi" -> "flake8" [
+        color="#cfbf57ff",
+        label="qa"];
+    "jedi" -> "colorama" [
+        color="#cfbf57ff",
+        label="testing"];
+    "jedi" -> "django" [
+        color="#cfbf57ff",
+        label="testing"];
+    "jedi" -> "docopt" [
+        color="#cfbf57ff",
+        label="testing"];
+    "jedi" -> "pytest" [
+        color="#cfbf57ff",
+        label="testing"];
+    "ipython" -> "pickleshare" [
+        color="#61c2c5",
+        label="all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test"];
+    "ipython" -> "decorator" [
+        color="#61c2c5",
+        label="all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test"];
+    "ipython" -> "traitlets" [
+        color="#61c2c5",
+        label="all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test"];
+    "ipython" -> "jedi" [
+        color="#61c2c5",
+        label="all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test"];
+    "ipython" -> "backcall" [
+        color="#61c2c5",
+        label="all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test"];
+    "ipython" -> "setuptools" [
+        color="#61c2c5",
+        label="all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test"];
+    "ipython" -> "pexpect" [
+        color="#61c2c5",
+        label="all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test"];
+    "ipython" -> "prompt-toolkit" [
+        color="#61c2c5",
+        label="all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test"];
+    "ipython" -> "pygments" [
+        color="#61c2c5",
+        label="all,all,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test"];
+    "ipython" -> "nbformat" [
+        color="#cfbf57ff",
+        label="all,nbformat,test"];
+    "ipython" -> "nbconvert" [
+        color="#cfbf57ff",
+        label="all,nbconvert"];
+    "ipython" -> "sphinx" [
+        color="#cfbf57ff",
+        label="all,doc"];
+    "ipython" -> "ipywidgets" [
+        color="#cfbf57ff",
+        label="all,notebook"];
+    "ipython" -> "qtconsole" [
+        color="#cfbf57ff",
+        label="all,qtconsole"];
+    "ipython" -> "nose" [
+        color="#cfbf57ff",
+        label="all,test"];
+    "ipython" -> "numpy" [
+        color="#cfbf57ff",
+        label="all,test"];
+    "ipython" -> "testpath" [
+        color="#cfbf57ff",
+        label="all,test"];
+    "ipython" -> "ipykernel" [
+        color="#cfbf57ff",
+        label="all,kernel,test"];
+    "ipython" -> "notebook" [
+        color="#cfbf57ff",
+        label="all,notebook"];
+    "ipython" -> "ipyparallel" [
+        color="#cfbf57ff",
+        label="all,parallel"];
+    "ipython" -> "requests" [
+        color="#cfbf57ff",
+        label="all,test"];
+    "ipykernel" -> "jupyter-client" [
+        color="#61c2c5",
+        label="test"];
+    "ipykernel" -> "traitlets" [
+        color="#61c2c5",
+        label="test"];
+    "ipykernel" -> "tornado" [
+        color="#61c2c5",
+        label="test"];
+    "ipykernel" -> "ipython" [
+        color="#61c2c5",
+        label="test"];
+    "ipykernel" -> "flaky" [
+        color="#cfbf57ff",
+        label="test"];
+    "ipykernel" -> "nose" [
+        color="#cfbf57ff",
+        label="test"];
+    "ipykernel" -> "pytest-cov" [
+        color="#cfbf57ff",
+        label="test"];
+    "ipykernel" -> "jedi" [
+        color="#cfbf57ff",
+        label="test"];
+    "ipykernel" -> "pytest" [
+        color="#cfbf57ff",
+        label="test"];
+    "cryptography" -> "six" [
+        color="#61c2c5",
+        label="docs,docstest,pep8test,ssh,test"];
+    "cryptography" -> "cffi" [
+        color="#61c2c5",
+        label="docs,docstest,pep8test,ssh,test"];
+    "cryptography" -> "sphinx-rtd-theme" [
+        color="#cfbf57ff",
+        label="docs"];
+    "cryptography" -> "sphinx" [
+        color="#cfbf57ff",
+        label="docs"];
+    "cryptography" -> "pyenchant" [
+        color="#cfbf57ff",
+        label="docstest"];
+    "cryptography" -> "sphinxcontrib-spelling" [
+        color="#cfbf57ff",
+        label="docstest"];
+    "cryptography" -> "doc8" [
+        color="#cfbf57ff",
+        label="docstest"];
+    "cryptography" -> "twine" [
+        color="#cfbf57ff",
+        label="docstest"];
+    "cryptography" -> "pep8-naming" [
+        color="#cfbf57ff",
+        label="pep8test"];
+    "cryptography" -> "flake8-import-order" [
+        color="#cfbf57ff",
+        label="pep8test"];
+    "cryptography" -> "black" [
+        color="#cfbf57ff",
+        label="pep8test"];
+    "cryptography" -> "flake8" [
+        color="#cfbf57ff",
+        label="pep8test"];
+    "cryptography" -> "bcrypt" [
+        color="#cfbf57ff",
+        label="ssh"];
+    "cryptography" -> "iso8601" [
+        color="#cfbf57ff",
+        label="test"];
+    "cryptography" -> "pytest" [
+        color="#cfbf57ff",
+        label="test"];
+    "cryptography" -> "pytz" [
+        color="#cfbf57ff",
+        label="test"];
+    "cryptography" -> "pretend" [
+        color="#cfbf57ff",
+        label="test"];
+    "cryptography" -> "hypothesis" [
+        color="#cfbf57ff",
+        label="test"];
+    "cffi" -> "pycparser" [
+        color="#61c2c5",
+        label=""];
+    "bleach" -> "webencodings" [
+        color="#61c2c5",
+        label=""];
+    "bleach" -> "six" [
+        color="#61c2c5",
+        label=""];
+    "bleach" -> "packaging" [
+        color="#61c2c5",
+        label=""];
+    "autopep8" -> "pycodestyle" [
+        color="#61c2c5",
+        label=""];
+    "autopep8" -> "toml" [
+        color="#61c2c5",
+        label=""];
+    "pipdot" -> "pip" [
+        color="#61c2c5",
+        label=""];
+    "pipdot" -> "jinja2" [
+        color="#61c2c5",
+        label=""];
+
+}
