@@ -10,136 +10,21 @@ pip install pipdot
 
 ## Usage
 
-Execute
+Generate a [graphviz][] `dot` file
 
 ```sh
-pipdot out.dot
+pipdot --include-extras --show-extras-label 1.dot
+```
+
+Convert it to a `svg` (or other formats) image:
+
+```sh
+dot -Tsvg -O 1.dot
 ```
 
 we'll get something like:
 
-```dot
-digraph {
-    rankdir = "LR";
-    "setuptools" [
-        label="setuptools\n44.0.0",
-        color="#e27dd6ff", fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pkg-resources" [
-        label="pkg-resources\n0.0.0",
-        color="#e27dd6ff", fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pip" [
-        label="pip\n20.0.2",
-        color="#e27dd6ff", fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "markupsafe" [
-        label="MarkupSafe\n1.1.1",
-        color="#e27dd6ff", fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "jinja2" [
-        label="Jinja2\n2.11.3",
-        color="#e27dd6ff", fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pipdot" [
-        label="pipdot\n0.1.dev5+g0b50457.d20210205",
-        color="#e27dd6ff", fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "setuptools" [
-        label="setuptools\n44.0.0",
-        color="#e27dd6ff",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pkg-resources" [
-        label="pkg-resources\n0.0.0",
-        color="#e27dd6ff",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pip" [
-        label="pip\n20.0.2",
-        color="#e27dd6ff",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "markupsafe" [
-        label="MarkupSafe\n1.1.1",
-        color="#e27dd6ff",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "jinja2" [
-        label="Jinja2\n2.11.3",
-        color="#e27dd6ff",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pipdot" [
-        label="pipdot\n0.1.dev5+g0b50457.d20210205",
-        color="#e27dd6ff",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "setuptools" [
-        label="setuptools\n44.0.0",
-        color="#8383cc",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pkg-resources" [
-        label="pkg-resources\n0.0.0",
-        color="#8383cc",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pip" [
-        label="pip\n20.0.2",
-        color="#8383cc",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "markupsafe" [
-        label="MarkupSafe\n1.1.1",
-        color="#8383cc",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "jinja2" [
-        label="Jinja2\n2.11.3",
-        color="#8383cc",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pipdot" [
-        label="pipdot\n0.1.dev5+g0b50457.d20210205",
-        color="#8383cc",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-    "pipdot" [
-        label="pipdot\n0.1.dev5+g0b50457.d20210205",
-        color="#51bf5b",
-        fillcolor="#91b5c9",
-        style="filled,setlinewidth(6)"
-    ];
-    "jinja2" -> "markupsafe"[
-        color="#61c2c5"
-    ];
-    "pipdot" -> "pip"[
-        color="#61c2c5"
-    ];
-    "pipdot" -> "jinja2"[
-        color="#61c2c5"
-    ];
-}
-```
+![1](assets/1.dot.svg)
 
 Run
 
