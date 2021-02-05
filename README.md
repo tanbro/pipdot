@@ -24,7 +24,7 @@ dot -Tsvg -O 1.dot
 
 we'll get something like:
 
-![1](assets/1.dot.svg)
+![assets/1.dot.svg](https://github.com/tanbro/pipdot/raw/main/assets/1.dot.svg)
 
 Run
 
