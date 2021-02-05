@@ -1,19 +1,16 @@
 digraph {
+    rankdir = "LR";
 
-    // nodes
+{# nodes #}
 
-    subgraph {
-{%- for dist in system_distributions %}
+{%- for dist in installed_distributions %}
     "{{ dist.key }}" [
         label="{{ dist.project_name }}\n{{ dist.version }}",
-        color="#e27dd6ff",
-        fillcolor="#d9e7ee",
+        color="#e27dd6ff", fillcolor="#d9e7ee",
         style="filled,setlinewidth(6)"
     ];
 {%- endfor %}
-    }
 
-    subgraph {
 {%- for dist in user_distributions %}
     "{{ dist.key }}" [
         label="{{ dist.project_name }}\n{{ dist.version }}",
@@ -21,9 +18,16 @@ digraph {
         style="filled,setlinewidth(6)"
     ];
 {%- endfor %}
-    }
 
-    subgraph {
+{%- for dist in site_distributions %}
+    "{{ dist.key }}" [
+        label="{{ dist.project_name }}\n{{ dist.version }}",
+        color="#e27dd6ff",
+        fillcolor="#d9e7ee",
+        style="filled,setlinewidth(6)"
+    ];
+{%- endfor %}
+
 {%- for dist in local_distributions %}
     "{{ dist.key }}" [
         label="{{ dist.project_name }}\n{{ dist.version }}",
@@ -32,9 +36,7 @@ digraph {
         style="filled,setlinewidth(6)"
     ];
 {%- endfor %}
-    }
 
-    subgraph {
 {%- for dist in editable_distributions %}
     "{{ dist.key }}" [
         label="{{ dist.project_name }}\n{{ dist.version }}",
@@ -43,13 +45,12 @@ digraph {
         style="filled,setlinewidth(6)"
     ];
 {%- endfor %}
-    }
 
-    // edges
+{# edges #}
 
 {%- for dist in installed_distributions %}
 
-    {%- if show_extras -%}
+    {%- if include_extras -%}
         {%- set key_extras_map={} -%}
 
         {%- for require in dist.requires() -%}
@@ -77,7 +78,9 @@ digraph {
 
     {%- else -%}
         {%- for require in dist.requires() %}
-    "{{ dist.key }}" -> "{{ require.key }}";
+    "{{ dist.key }}" -> "{{ require.key }}"[
+        color="#61c2c5"
+    ];
         {%- endfor %}
     {%- endif -%}
 
