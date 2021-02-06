@@ -1,7 +1,15 @@
-import argparse
+"""
+Generate a GraphViz dot file representing installed PyPI distributions
+"""
+
 import os
 import sys
-from itertools import chain
+from argparse import ArgumentParser, FileType
+
+try:
+    from argparse import BooleanOptionalAction
+except ImportError:
+    from .boolean_optional_action import BooleanOptionalAction
 
 import jinja2
 from pip._internal.utils.misc import (dist_in_site_packages, dist_in_usersite,
@@ -13,50 +21,43 @@ from .version import version as __version__
 __PACKAGE_NAME__ = 'pipdot'
 __PROG__ = 'pipdot'
 
-BOOLEAN_MAPPING = {
-    0: ('0', 'n', 'no', 'off', 'false'),
-    1: ('1', 'y', 'yes', 'on', 'true'),
-}
-BOOLEAN_CHOICES = list(chain.from_iterable(BOOLEAN_MAPPING.values()))
 
-
-def s2b(s):
-    for k, v in BOOLEAN_MAPPING.items():
-        if s in v:
-            return bool(k)
-    raise ValueError(s)
-
-
-def _args():
+def _get_args():
     prog = __PROG__
     _, tail = os.path.split(sys.argv[0])
     root, _ = os.path.splitext(tail)
     if root == __name__:
         prog = '{} -m {}'.format(sys.executable, __PACKAGE_NAME__)
-    parser = argparse.ArgumentParser(prog=prog, description=__doc__)
+    parser = ArgumentParser(prog=prog, description=__doc__)
     parser.add_argument(
-        '--local-only', '-l', choices=BOOLEAN_CHOICES, default='true',
-        help='If in a virtualenv that has global access, do not list globally-installed packages. (default=%(default)s)'
+        '--path', '-p', action='append',
+        help='If path is set, only report the distributions present at the specified location. '
+             'This option can be specified multiple times for more locations.'
     )
     parser.add_argument(
-        '--include-editables', '-e', choices=BOOLEAN_CHOICES, default='true',
-        help='List editable projects. (default=%(default)s)'
+        '--local-only', '-l', action=BooleanOptionalAction,  default=True,
+        help='If in a virtual-env that has global access, '
+             'do not list globally-installed packages.'
     )
     parser.add_argument(
-        '--editables-only', choices=BOOLEAN_CHOICES, default='false',
-        help='List editable projects only. (default=%(default)s)'
+        '--include-editables', action=BooleanOptionalAction, default=True,
+        help='List editable projects.'
     )
     parser.add_argument(
-        '--user-only', '-u', choices=BOOLEAN_CHOICES, default='false',
-        help='Only output packages installed in user-site. (default=%(default)s)'
+        '--editables-only', '-e', action=BooleanOptionalAction, default=False,
+        help='List editable projects only.'
     )
     parser.add_argument(
-        '--include-extras', action='store_true',
-        help='List extras dependent packages. (default=%(default)s)'
+        '--user-only', '-u', action=BooleanOptionalAction, default=False,
+        help='Only output packages installed in user-site.'
     )
     parser.add_argument(
-        '--show-extras-label', action='store_true',
-        help='Show extras dependencies label. (default=%(default)s)'
+        '--include-extras', action=BooleanOptionalAction, default=False,
+        help='List extras dependent packages.'
+    )
+    parser.add_argument(
+        '--show-extras-label', action=BooleanOptionalAction, default=False,
+        help='Show extras dependencies label.'
     )
     parser.add_argument(
         '--version', '-V', action='version',
@@ -65,18 +66,19 @@ def _args():
         )
     )
     parser.add_argument(
-        'outfile', type=argparse.FileType('w'),
+        'outfile', type=FileType('w'),
         help='Write generated graphviz dot file here.',
     )
     return parser.parse_args()
 
 
-def _do(args):
+def _perform(args):
     installed_distributions = get_installed_distributions(
-        local_only=s2b(args.local_only),
-        include_editables=s2b(args.include_editables),
-        editables_only=s2b(args.editables_only),
-        user_only=s2b(args.user_only),
+        local_only=args.local_only,
+        include_editables=args.include_editables,
+        editables_only=args.editables_only,
+        user_only=args.user_only,
+        paths=args.path
     )
     editable_distributions = []
     local_distributions = []
@@ -103,19 +105,19 @@ def _do(args):
         show_extras_label=args.show_extras_label,
     )
 
-    jinja_env = jinja2.Environment(
+    template = jinja2.Environment(
         loader=jinja2.PackageLoader(__PACKAGE_NAME__),
         extensions=['jinja2.ext.do']
-    )
-    template = jinja_env.get_template('default.dot.j2')
+    ).get_template('default.dot.j2')
+
     for s in template.generate(context):
         args.outfile.write(s)
 
 
 def main():
-    args = _args()
-    code = _do(args)
-    return code
+    args = _get_args()
+    return _perform(args)
+
 
 if __name__ == '__main__':
     exit(main())
