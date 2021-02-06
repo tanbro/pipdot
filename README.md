@@ -1,6 +1,6 @@
 # pipdot
 
-Generate a [Graphviz][] `dot` file representing installed [PyPI][] distributions.
+Generate a [GraphViz][] `dot` file representing installed [PyPI][] distributions.
 
 ## Installation
 
@@ -10,7 +10,7 @@ pip install pipdot
 
 ## Usage
 
-Generate a [graphviz][] `dot` file
+Generate a [GraphViz][] `dot` file:
 
 ```sh
 pipdot --include-extras --show-extras-label 1.dot
@@ -19,7 +19,7 @@ pipdot --include-extras --show-extras-label 1.dot
 Convert it to a `svg` (or other formats) image:
 
 ```sh
-dot -Tsvg -O 1.dot
+dot -T svg -O 1.dot
 ```
 
 we'll get something like:
