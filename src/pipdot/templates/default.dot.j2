@@ -116,16 +116,16 @@ digraph {
 
         {%- for dep_key, extras in key_extras_map.items() %}
     "{{ dist.key }}" -> "{{ dep_key }}" [
-            {%- if "" not in extras -%}
+            {%- if "" not in extras %}
         color=grey,
-            {% endif %}
-            {%- if "" not in extras -%}
+            {%- endif %}
+            {%- if "" not in extras %}
         style=dashed,
-                {%- if show_extras_label -%}
+                {%- if show_extras_label %}
         label="{{ extras | reject("eq", "") | join(',') }}",
         fontcolor=grey
-                {% endif %}
-            {%- endif%}
+                {%- endif %}
+            {%- endif %}
     ];
         {%- endfor %}
 
