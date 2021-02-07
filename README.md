@@ -10,6 +10,8 @@ pip install pipdot
 
 ## Usage
 
+A [pip][] `>=10.0` is needed.
+
 Generate a [GraphViz][] `dot` file:
 
 ```sh
