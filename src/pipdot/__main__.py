@@ -12,9 +12,14 @@ except ImportError:
     from .boolean_optional_action import BooleanOptionalAction
 
 import jinja2
-from pip._internal.utils.misc import (dist_in_site_packages, dist_in_usersite,
-                                      dist_is_editable, dist_is_local,
-                                      get_installed_distributions)
+
+from pip._internal.utils.misc import (  # noqa
+    dist_in_site_packages,  # noqa
+    dist_in_usersite,  # noqa
+    dist_is_editable,  # noqa
+    dist_is_local,  # noqa
+    get_installed_distributions  # noqa
+)
 
 from .version import version as __version__
 
@@ -35,7 +40,7 @@ def _get_args():
              'This option can be specified multiple times for more than one locations.'
     )
     parser.add_argument(
-        '--local-only', action=BooleanOptionalAction,  default=True,
+        '--local-only', action=BooleanOptionalAction, default=True,
         help='If in a virtual-env that has global access, '
              'do not list globally-installed packages.'
     )
@@ -73,37 +78,33 @@ def _get_args():
 
 
 def _perform(args):
-    installed_distributions = get_installed_distributions(
+    dist_list = get_installed_distributions(
         local_only=args.local_only,
         include_editables=args.include_editables,
         editables_only=args.editables_only,
         user_only=args.user_only,
         paths=args.path
     )
-    editable_distributions = []
-    local_distributions = []
-    user_distributions = []
-    site_distributions = []
-
-    for dist in installed_distributions:
-        if dist_is_editable(dist):
-            editable_distributions.append(dist)
-        if dist_is_local(dist):
-            local_distributions.append(dist)
-        if dist_in_site_packages(dist):
-            site_distributions.append(dist)
-        if dist_in_usersite(dist):
-            user_distributions.append(dist)
 
     context = dict(
-        installed_distributions=installed_distributions,
-        editable_distributions=editable_distributions,
-        local_distributions=local_distributions,
-        site_distributions=site_distributions,
-        user_distributions=user_distributions,
+        installed_distributions=dist_list,
+        editable_distributions=[],
+        local_distributions=[],
+        site_distributions=[],
+        user_distributions=[],
         include_extras=args.include_extras,
         show_extras_label=args.show_extras_label,
     )
+
+    for dist in dist_list:
+        if dist_is_editable(dist):
+            context['editable_distributions'].append(dist)
+        if dist_is_local(dist):
+            context['local_distributions'].append(dist)
+        if dist_in_site_packages(dist):
+            context['site_distributions'].append(dist)
+        if dist_in_usersite(dist):
+            context['user_distributions'].append(dist)
 
     template = jinja2.Environment(
         loader=jinja2.PackageLoader(__PACKAGE_NAME__),
