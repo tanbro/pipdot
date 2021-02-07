@@ -132,9 +132,7 @@ digraph {
     {%- else %}
 
         {%- for require in dist.requires() %}
-    "{{ dist.key }}" -> "{{ require.key }}"[
-        color="#61c2c5"
-    ];
+    "{{ dist.key }}" -> "{{ require.key }}";
         {%- endfor %}
 
     {%- endif %}
