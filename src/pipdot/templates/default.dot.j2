@@ -1,53 +1,98 @@
 digraph {
     rankdir = "LR";
 
+    node [color=grey, style=dashed]
+    edge [color="#61c2c5", style="filled,setlinewidth(2)"]
+
 {# nodes #}
+{%- set dist_keys = [] -%}
 
-{%- for dist in installed_distributions %}
-    "{{ dist.key }}" [
-        label="{{ dist.project_name }}\n{{ dist.version }}",
-        color="#e27dd6ff", fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-{%- endfor %}
-
-{%- for dist in user_distributions %}
-    "{{ dist.key }}" [
-        label="{{ dist.project_name }}\n{{ dist.version }}",
-        color="#61c2c5", fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-{%- endfor %}
-
-{%- for dist in site_distributions %}
-    "{{ dist.key }}" [
-        label="{{ dist.project_name }}\n{{ dist.version }}",
-        color="#e27dd6ff",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-{%- endfor %}
-
-{%- for dist in local_distributions %}
-    "{{ dist.key }}" [
-        label="{{ dist.project_name }}\n{{ dist.version }}",
-        color="#8383cc",
-        fillcolor="#d9e7ee",
-        style="filled,setlinewidth(6)"
-    ];
-{%- endfor %}
-
+    subgraph {
+        node [
+            shape=box,
+            color="#51bf5b",
+            fillcolor="#91b5c9",
+            style="dotted,filled,setlinewidth(4)"
+        ];
 {%- for dist in editable_distributions %}
-    "{{ dist.key }}" [
-        label="{{ dist.project_name }}\n{{ dist.version }}",
-        color="#51bf5b",
-        fillcolor="#91b5c9",
-        style="filled,setlinewidth(6)"
-    ];
+    {%- if not dist.key in dist_keys %}
+        {%- do dist_keys.append(dist.key) %}
+        "{{ dist.key }}" [
+            label="{{ dist.project_name }}\n{{ dist.version }}"
+        ];
+    {%- endif %}
 {%- endfor %}
+    }
+
+    subgraph {
+        node [
+            shape=egg,
+            color="#8383cc",
+            fillcolor="#d9e7ee",
+            style="filled,setlinewidth(4)"
+        ];
+{%- for dist in local_distributions %}
+    {%- if not dist.key in dist_keys %}
+        {%- do dist_keys.append(dist.key) %}
+        "{{ dist.key }}" [
+            label="{{ dist.project_name }}\n{{ dist.version }}"
+        ];
+    {%- endif %}
+{%- endfor %}
+    }
+
+    subgraph {
+        node [
+            shape=polygon,
+            color="#61c2c5",
+            fillcolor="#d9e7ee",
+            style="filled,setlinewidth(4)"
+        ];
+{%- for dist in site_distributions %}
+    {%- if not dist.key in dist_keys %}
+        {%- do dist_keys.append(dist.key) %}
+        "{{ dist.key }}" [
+            label="{{ dist.project_name }}\n{{ dist.version }}"
+        ];
+    {%- endif %}
+{%- endfor %}
+    }
+
+    subgraph {
+        node [
+            shape=septagon,
+            color="#e27dd6ff",
+            fillcolor="#d9e7ee",
+            style="filled,setlinewidth(4)"
+        ];
+{%- for dist in user_distributions %}
+    {%- if not dist.key in dist_keys %}
+        {%- do dist_keys.append(dist.key) %}
+        "{{ dist.key }}" [
+            label="{{ dist.project_name }}\n{{ dist.version }}"
+        ];
+    {%- endif %}
+{%- endfor %}
+    }
+
+    subgraph {
+        node [
+            shape=octagon,
+            color="#e27dd6ff",
+            fillcolor="#d9e7ee",
+            style="filled,setlinewidth(4)"
+        ];
+{%- for dist in installed_distributions %}
+    {%- if not dist.key in dist_keys %}
+        {%- do dist_keys.append(dist.key) %}
+    "{{ dist.key }}" [
+        label="{{ dist.project_name }}\n{{ dist.version }}"
+    ];
+    {%- endif %}
+{%- endfor %}
+    }
 
 {# edges #}
-
 {%- for dist in installed_distributions %}
 
     {%- if include_extras -%}
@@ -71,18 +116,28 @@ digraph {
 
         {%- for dep_key, extras in key_extras_map.items() %}
     "{{ dist.key }}" -> "{{ dep_key }}" [
-        color={%- if "" in extras -%}"#61c2c5"{%- else -%}"#cfbf57ff"{%- endif-%},
-        label={%- if show_extras_label -%}"{{ extras | reject("eq", "") | join(',') }}"{%- else -%}""{%- endif -%}
+            {%- if "" not in extras -%}
+        color=grey,
+            {% endif %}
+            {%- if "" not in extras -%}
+        style=dashed,
+                {%- if show_extras_label -%}
+        label="{{ extras | reject("eq", "") | join(',') }}",
+        fontcolor=grey
+                {% endif %}
+            {%- endif%}
     ];
         {%- endfor %}
 
-    {%- else -%}
+    {%- else %}
+
         {%- for require in dist.requires() %}
     "{{ dist.key }}" -> "{{ require.key }}"[
         color="#61c2c5"
     ];
         {%- endfor %}
-    {%- endif -%}
+
+    {%- endif %}
 
 {%- endfor %}
 
