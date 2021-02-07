@@ -7,7 +7,7 @@ import sys
 from argparse import ArgumentParser, FileType
 
 try:
-    from argparse import BooleanOptionalAction
+    from argparse import BooleanOptionalAction  # type: ignore
 except ImportError:
     from .boolean_optional_action import BooleanOptionalAction
 
@@ -32,10 +32,10 @@ def _get_args():
     parser.add_argument(
         '--path', '-p', action='append',
         help='If path is set, only report the distributions present at the specified location. '
-             'This option can be specified multiple times for more locations.'
+             'This option can be specified multiple times for more than one locations.'
     )
     parser.add_argument(
-        '--local-only', '-l', action=BooleanOptionalAction,  default=True,
+        '--local-only', action=BooleanOptionalAction,  default=True,
         help='If in a virtual-env that has global access, '
              'do not list globally-installed packages.'
     )
@@ -44,11 +44,11 @@ def _get_args():
         help='List editable projects.'
     )
     parser.add_argument(
-        '--editables-only', '-e', action=BooleanOptionalAction, default=False,
+        '--editables-only', action=BooleanOptionalAction, default=False,
         help='List editable projects only.'
     )
     parser.add_argument(
-        '--user-only', '-u', action=BooleanOptionalAction, default=False,
+        '--user-only', action=BooleanOptionalAction, default=False,
         help='Only output packages installed in user-site.'
     )
     parser.add_argument(
