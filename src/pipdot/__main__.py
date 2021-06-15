@@ -66,8 +66,8 @@ def _get_args():
     )
     parser.add_argument(
         '--version', '-V', action='version',
-        version='%(prog)s {0} from {1} ({2} {3[0]}.{3[1]})'.format(
-            __version__, sys.argv[0], sys.implementation.name, sys.version_info
+        version='%(prog)s {0} from {1} ({2} {3})'.format(
+            __version__, sys.argv[0], sys.implementation.name, sys.version
         )
     )
     parser.add_argument(
