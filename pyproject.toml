@@ -3,5 +3,5 @@ requires = ["setuptools>=48.0", "wheel", "setuptools_scm[toml]>=3.4", "setuptool
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
-version_scheme = "guess-next-dev" # or post-release
+version_scheme = "guess-next-dev" # guess-next-dev, post-release
 write_to = "src/pipdot/version.py"

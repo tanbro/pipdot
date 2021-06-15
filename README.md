@@ -38,4 +38,4 @@ for help messages
 
 [PyPI]: https://pypi.org/
 [pip]: https://pip.pypa.io/
-[graphviz]: https://graphviz.org/
+[GraphViz]: https://graphviz.org/
