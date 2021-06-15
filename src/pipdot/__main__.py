@@ -66,7 +66,7 @@ def _get_args():
         )
     )
     parser.add_argument(
-        'outfile', type=FileType('w'),
+        'outfile', type=FileType('w', encoding='utf-8'),
         help='Write generated graphviz dot file here.',
     )
     return parser.parse_args()
