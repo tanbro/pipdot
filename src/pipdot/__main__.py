@@ -86,15 +86,15 @@ def _perform(args):
         paths=args.path
     )
 
-    context = dict(
-        installed_distributions=dist_list,
-        editable_distributions=[],
-        local_distributions=[],
-        site_distributions=[],
-        user_distributions=[],
-        include_extras=args.include_extras,
-        show_extras_label=args.show_extras_label,
-    )
+    context = {
+        'installed_distributions': dist_list,
+        'editable_distributions': [],
+        'local_distributions': [],
+        'site_distributions': [],
+        'user_distributions': [],
+        'include_extras': args.include_extras,
+        'show_extras_label': args.show_extras_label,
+    }
 
     for dist in dist_list:
         if dist_is_editable(dist):
