@@ -2,26 +2,22 @@
 Generate a GraphViz dot file representing installed PyPI distributions
 """
 
-import os
 import sys
 from argparse import ArgumentParser, FileType
+from os import path
+
+import jinja2
+from pip._internal.utils.misc import (dist_in_site_packages, dist_in_usersite,
+                                      dist_is_editable, dist_is_local,
+                                      get_installed_distributions)
+
+from .version import version as __version__
 
 try:
     from argparse import BooleanOptionalAction  # type: ignore
 except ImportError:
     from .boolean_optional_action import BooleanOptionalAction
 
-import jinja2
-
-from pip._internal.utils.misc import (  # noqa
-    dist_in_site_packages,  # noqa
-    dist_in_usersite,  # noqa
-    dist_is_editable,  # noqa
-    dist_is_local,  # noqa
-    get_installed_distributions  # noqa
-)
-
-from .version import version as __version__
 
 __PACKAGE_NAME__ = 'pipdot'
 __PROG__ = 'pipdot'
@@ -29,11 +25,17 @@ __PROG__ = 'pipdot'
 
 def _get_args():
     prog = __PROG__
-    _, tail = os.path.split(sys.argv[0])
-    root, _ = os.path.splitext(tail)
+    _, tail = path.split(sys.argv[0])
+    root, _ = path.splitext(tail)
     if root == __name__:
         prog = '{} -m {}'.format(sys.executable, __PACKAGE_NAME__)
     parser = ArgumentParser(prog=prog, description=__doc__)
+    parser.add_argument(
+        '--version', '-V', action='version',
+        version='%(prog)s {0} from {1} ({2} {3})'.format(
+            __version__, sys.argv[0], sys.implementation.name, sys.version
+        )
+    )
     parser.add_argument(
         '--path', '-p', action='append',
         help='If path is set, only report the distributions present at the specified location. '
@@ -65,10 +67,9 @@ def _get_args():
         help='Show extras dependencies label.'
     )
     parser.add_argument(
-        '--version', '-V', action='version',
-        version='%(prog)s {0} from {1} ({2} {3})'.format(
-            __version__, sys.argv[0], sys.implementation.name, sys.version
-        )
+        '--template', '-t',
+        help='The Jinja2 template file be used to render GraphViz. '
+             'If not specified, a default template will be used.'
     )
     parser.add_argument(
         'outfile', type=FileType('w', encoding='utf-8'),
@@ -106,10 +107,16 @@ def _perform(args):
         if dist_in_usersite(dist):
             context['user_distributions'].append(dist)
 
-    template = jinja2.Environment(
-        loader=jinja2.PackageLoader(__PACKAGE_NAME__),
-        extensions=['jinja2.ext.do']
-    ).get_template('default.dot.j2')
+    if args.template:
+        template = jinja2.Environment(
+            loader=jinja2.FileSystemLoader(''),
+            extensions=['jinja2.ext.do']
+        ).get_template(args.template)
+    else:
+        template = jinja2.Environment(
+            loader=jinja2.PackageLoader(__PACKAGE_NAME__),
+            extensions=['jinja2.ext.do']
+        ).get_template('default.dot.j2')
 
     for s in template.generate(context):
         args.outfile.write(s)
