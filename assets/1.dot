@@ -12,7 +12,7 @@ subgraph {
             style="dotted,filled,setlinewidth(4)"
         ];
         "pipdot" [
-            label="pipdot\n0.2.dev6+gd34f08c.d20210207"
+            label="pipdot\n0.2.dev16+gc5582ac.d20211123"
         ];
     }
 
@@ -23,6 +23,9 @@ subgraph {
             fillcolor="#d9e7ee",
             style="filled,setlinewidth(4)"
         ];
+        "zipp" [
+            label="zipp\n3.6.0"
+        ];
         "webencodings" [
             label="webencodings\n0.5.1"
         ];
@@ -30,76 +33,79 @@ subgraph {
             label="wcwidth\n0.2.5"
         ];
         "urllib3" [
-            label="urllib3\n1.26.3"
+            label="urllib3\n1.26.7"
         ];
         "twine" [
-            label="twine\n3.3.0"
+            label="twine\n3.6.0"
         ];
         "traitlets" [
-            label="traitlets\n5.0.5"
+            label="traitlets\n5.1.1"
         ];
         "tqdm" [
-            label="tqdm\n4.56.0"
+            label="tqdm\n4.62.3"
         ];
         "tornado" [
             label="tornado\n6.1"
+        ];
+        "tomli" [
+            label="tomli\n1.2.2"
         ];
         "toml" [
             label="toml\n0.10.2"
         ];
         "six" [
-            label="six\n1.15.0"
+            label="six\n1.16.0"
         ];
         "setuptools" [
-            label="setuptools\n53.0.0"
+            label="setuptools\n44.0.0"
         ];
         "secretstorage" [
-            label="SecretStorage\n3.3.0"
+            label="SecretStorage\n3.3.1"
         ];
         "rfc3986" [
-            label="rfc3986\n1.4.0"
+            label="rfc3986\n1.5.0"
         ];
         "requests" [
-            label="requests\n2.25.1"
+            label="requests\n2.26.0"
         ];
         "requests-toolbelt" [
             label="requests-toolbelt\n0.9.1"
         ];
         "readme-renderer" [
-            label="readme-renderer\n28.0"
+            label="readme-renderer\n30.0"
         ];
         "pyzmq" [
-            label="pyzmq\n22.0.2"
+            label="pyzmq\n22.3.0"
         ];
         "python-dateutil" [
-            label="python-dateutil\n2.8.1"
+            label="python-dateutil\n2.8.2"
         ];
         "pyparsing" [
-            label="pyparsing\n2.4.7"
+            label="pyparsing\n3.0.6"
         ];
         "pygments" [
-            label="Pygments\n2.7.4"
+            label="Pygments\n2.10.0"
         ];
         "pycparser" [
-            label="pycparser\n2.20"
+            label="pycparser\n2.21"
         ];
         "pycodestyle" [
-            label="pycodestyle\n2.6.0"
+            label="pycodestyle\n2.8.0"
         ];
         "ptyprocess" [
             label="ptyprocess\n0.7.0"
         ];
         "prompt-toolkit" [
-            label="prompt-toolkit\n3.0.14"
+            label="prompt-toolkit\n3.0.22"
         ];
         "pkginfo" [
-            label="pkginfo\n1.7.0"
+            label="pkginfo\n1.8.1"
         ];
         "pkg-resources" [
             label="pkg-resources\n0.0.0"
         ];
         "pip" [
-            label="pip\n21.0.1"
+            label="pip\n20.0.2"
         ];
         "pickleshare" [
             label="pickleshare\n0.7.5"
@@ -108,79 +114,91 @@ subgraph {
             label="pexpect\n4.8.0"
         ];
         "pep517" [
-            label="pep517\n0.9.1"
+            label="pep517\n0.12.0"
         ];
         "parso" [
-            label="parso\n0.8.1"
+            label="parso\n0.8.2"
         ];
         "packaging" [
-            label="packaging\n20.9"
+            label="packaging\n21.3"
+        ];
+        "nest-asyncio" [
+            label="nest-asyncio\n1.5.1"
+        ];
+        "matplotlib-inline" [
+            label="matplotlib-inline\n0.1.3"
         ];
         "markupsafe" [
-            label="MarkupSafe\n1.1.1"
+            label="MarkupSafe\n2.0.1"
         ];
         "keyring" [
-            label="keyring\n22.0.1"
+            label="keyring\n23.2.1"
         ];
         "jupyter-core" [
-            label="jupyter-core\n4.7.1"
+            label="jupyter-core\n4.9.1"
         ];
         "jupyter-client" [
-            label="jupyter-client\n6.1.11"
+            label="jupyter-client\n7.1.0"
         ];
         "jinja2" [
-            label="Jinja2\n2.11.3"
+            label="Jinja2\n3.0.3"
         ];
         "jeepney" [
-            label="jeepney\n0.6.0"
+            label="jeepney\n0.7.1"
         ];
         "jedi" [
-            label="jedi\n0.18.0"
+            label="jedi\n0.18.1"
         ];
         "ipython" [
-            label="ipython\n7.20.0"
-        ];
-        "ipython-genutils" [
-            label="ipython-genutils\n0.2.0"
+            label="ipython\n7.29.0"
         ];
         "ipykernel" [
-            label="ipykernel\n5.4.3"
+            label="ipykernel\n6.5.1"
+        ];
+        "importlib-metadata" [
+            label="importlib-metadata\n4.8.2"
         ];
         "idna" [
-            label="idna\n2.10"
+            label="idna\n3.3"
+        ];
+        "entrypoints" [
+            label="entrypoints\n0.3"
         ];
         "docutils" [
-            label="docutils\n0.16"
+            label="docutils\n0.18"
         ];
         "decorator" [
-            label="decorator\n4.4.2"
+            label="decorator\n5.1.0"
+        ];
+        "debugpy" [
+            label="debugpy\n1.5.1"
         ];
         "cryptography" [
-            label="cryptography\n3.3.1"
+            label="cryptography\n36.0.0"
         ];
         "colorama" [
             label="colorama\n0.4.4"
         ];
-        "chardet" [
-            label="chardet\n4.0.0"
+        "charset-normalizer" [
+            label="charset-normalizer\n2.0.7"
         ];
         "cffi" [
-            label="cffi\n1.14.4"
+            label="cffi\n1.15.0"
         ];
         "certifi" [
-            label="certifi\n2020.12.5"
+            label="certifi\n2021.10.8"
         ];
         "build" [
-            label="build\n0.1.0"
+            label="build\n0.7.0"
         ];
         "bleach" [
-            label="bleach\n3.3.0"
+            label="bleach\n4.1.0"
         ];
         "backcall" [
             label="backcall\n0.2.0"
         ];
         "autopep8" [
-            label="autopep8\n1.5.5"
+            label="autopep8\n1.6.0"
         ];
     }
 
@@ -212,725 +230,1007 @@ subgraph {
     }
 
 
-    "urllib3" -> "brotlipy" [color=grey,
-            style=dashed,label="brotli",
+    "zipp" -> "jaraco.packaging" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "urllib3" -> "pyopenssl" [color=grey,
-            style=dashed,label="secure",
+    "zipp" -> "sphinx" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "urllib3" -> "certifi" [color=grey,
-            style=dashed,label="secure",
+    "zipp" -> "rst.linker" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "urllib3" -> "cryptography" [color=grey,
-            style=dashed,label="secure",
+    "zipp" -> "jaraco.itertools" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "urllib3" -> "idna" [color=grey,
-            style=dashed,label="secure",
+    "zipp" -> "pytest-checkdocs" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "urllib3" -> "pysocks" [color=grey,
-            style=dashed,label="socks",
+    "zipp" -> "pytest-cov" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "twine" -> "pkginfo" [
+    "zipp" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
     ];
-    "twine" -> "tqdm" [
+    "zipp" -> "pytest-mypy" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "zipp" -> "pytest-flake8" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "zipp" -> "func-timeout" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "zipp" -> "pytest-enabler" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "zipp" -> "pytest-black" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "urllib3" -> "brotlipy" [
+        color=grey,
+        style=dashed,
+        label="brotli",
+        fontcolor=grey
+    ];
+    "urllib3" -> "certifi" [
+        color=grey,
+        style=dashed,
+        label="secure",
+        fontcolor=grey
+    ];
+    "urllib3" -> "pyopenssl" [
+        color=grey,
+        style=dashed,
+        label="secure",
+        fontcolor=grey
+    ];
+    "urllib3" -> "cryptography" [
+        color=grey,
+        style=dashed,
+        label="secure",
+        fontcolor=grey
+    ];
+    "urllib3" -> "idna" [
+        color=grey,
+        style=dashed,
+        label="secure",
+        fontcolor=grey
+    ];
+    "urllib3" -> "pysocks" [
+        color=grey,
+        style=dashed,
+        label="socks",
+        fontcolor=grey
     ];
     "twine" -> "colorama" [
     ];
-    "twine" -> "requests-toolbelt" [
+    "twine" -> "rfc3986" [
     ];
     "twine" -> "keyring" [
     ];
-    "twine" -> "setuptools" [
+    "twine" -> "tqdm" [
+    ];
+    "twine" -> "requests-toolbelt" [
+    ];
+    "twine" -> "pkginfo" [
     ];
     "twine" -> "readme-renderer" [
     ];
-    "twine" -> "rfc3986" [
-    ];
     "twine" -> "requests" [
     ];
-    "traitlets" -> "ipython-genutils" [
+    "twine" -> "importlib-metadata" [
     ];
-    "traitlets" -> "pytest" [color=grey,
-            style=dashed,label="test",
+    "traitlets" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "tqdm" -> "py-make" [color=grey,
-            style=dashed,label="dev",
+    "tqdm" -> "py-make" [
+        color=grey,
+        style=dashed,
+        label="dev",
         fontcolor=grey
-                
     ];
-    "tqdm" -> "wheel" [color=grey,
-            style=dashed,label="dev",
+    "tqdm" -> "wheel" [
+        color=grey,
+        style=dashed,
+        label="dev",
         fontcolor=grey
-                
     ];
-    "tqdm" -> "twine" [color=grey,
-            style=dashed,label="dev",
+    "tqdm" -> "twine" [
+        color=grey,
+        style=dashed,
+        label="dev",
         fontcolor=grey
-                
     ];
-    "tqdm" -> "requests" [color=grey,
-            style=dashed,label="telegram",
+    "tqdm" -> "ipywidgets" [
+        color=grey,
+        style=dashed,
+        label="notebook",
         fontcolor=grey
-                
     ];
-    "setuptools" -> "certifi" [color=grey,
-            style=dashed,label="certs",
+    "tqdm" -> "requests" [
+        color=grey,
+        style=dashed,
+        label="telegram",
         fontcolor=grey
-                
-    ];
-    "setuptools" -> "pygments-github-lexers" [color=grey,
-            style=dashed,label="docs",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "rst.linker" [color=grey,
-            style=dashed,label="docs",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "jaraco.packaging" [color=grey,
-            style=dashed,label="docs",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "sphinx" [color=grey,
-            style=dashed,label="docs",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest-enabler" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest-cov" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "flake8-2020" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest-flake8" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest-mypy" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest-xdist" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest-black" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pip" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "virtualenv" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "jaraco.envs" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest-virtualenv" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "pytest-checkdocs" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "wheel" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "paver" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
-    ];
-    "setuptools" -> "mock" [color=grey,
-            style=dashed,label="testing",
-        fontcolor=grey
-                
     ];
     "secretstorage" -> "jeepney" [
     ];
     "secretstorage" -> "cryptography" [
     ];
-    "rfc3986" -> "idna" [color=grey,
-            style=dashed,label="idna2008",
+    "rfc3986" -> "idna" [
+        color=grey,
+        style=dashed,
+        label="idna2008",
         fontcolor=grey
-                
-    ];
-    "requests" -> "idna" [
     ];
     "requests" -> "urllib3" [
     ];
-    "requests" -> "chardet" [
+    "requests" -> "idna" [
+    ];
+    "requests" -> "charset-normalizer" [
     ];
     "requests" -> "certifi" [
     ];
-    "requests" -> "pyopenssl" [color=grey,
-            style=dashed,label="security",
+    "requests" -> "pysocks" [
+        color=grey,
+        style=dashed,
+        label="socks",
         fontcolor=grey
-                
     ];
-    "requests" -> "cryptography" [color=grey,
-            style=dashed,label="security",
+    "requests" -> "chardet" [
+        color=grey,
+        style=dashed,
+        label="use_chardet_on_py3",
         fontcolor=grey
-                
-    ];
-    "requests" -> "pysocks" [color=grey,
-            style=dashed,label="socks",
-        fontcolor=grey
-                
     ];
     "requests-toolbelt" -> "requests" [
     ];
     "readme-renderer" -> "docutils" [
     ];
-    "readme-renderer" -> "six" [
+    "readme-renderer" -> "pygments" [
     ];
     "readme-renderer" -> "bleach" [
     ];
-    "readme-renderer" -> "pygments" [
-    ];
-    "readme-renderer" -> "cmarkgfm" [color=grey,
-            style=dashed,label="md",
+    "readme-renderer" -> "cmarkgfm" [
+        color=grey,
+        style=dashed,
+        label="md",
         fontcolor=grey
-                
     ];
     "python-dateutil" -> "six" [
     ];
+    "pyparsing" -> "jinja2" [
+        color=grey,
+        style=dashed,
+        label="diagrams",
+        fontcolor=grey
+    ];
+    "pyparsing" -> "railroad-diagrams" [
+        color=grey,
+        style=dashed,
+        label="diagrams",
+        fontcolor=grey
+    ];
     "prompt-toolkit" -> "wcwidth" [
     ];
-    "pkginfo" -> "nose" [color=grey,
-            style=dashed,label="testing",
+    "pkginfo" -> "coverage" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "pkginfo" -> "coverage" [color=grey,
-            style=dashed,label="testing",
+    "pkginfo" -> "nose" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
     "pexpect" -> "ptyprocess" [
     ];
-    "pep517" -> "toml" [
+    "pep517" -> "tomli" [
     ];
-    "parso" -> "flake8" [color=grey,
-            style=dashed,label="qa",
+    "parso" -> "mypy" [
+        color=grey,
+        style=dashed,
+        label="qa",
         fontcolor=grey
-                
     ];
-    "parso" -> "mypy" [color=grey,
-            style=dashed,label="qa",
+    "parso" -> "flake8" [
+        color=grey,
+        style=dashed,
+        label="qa",
         fontcolor=grey
-                
     ];
-    "parso" -> "pytest" [color=grey,
-            style=dashed,label="testing",
+    "parso" -> "docopt" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "parso" -> "docopt" [color=grey,
-            style=dashed,label="testing",
+    "parso" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
     "packaging" -> "pyparsing" [
     ];
-    "keyring" -> "jeepney" [
+    "matplotlib-inline" -> "traitlets" [
     ];
     "keyring" -> "secretstorage" [
     ];
-    "keyring" -> "rst.linker" [color=grey,
-            style=dashed,label="docs",
-        fontcolor=grey
-                
+    "keyring" -> "jeepney" [
     ];
-    "keyring" -> "jaraco.packaging" [color=grey,
-            style=dashed,label="docs",
-        fontcolor=grey
-                
+    "keyring" -> "importlib-metadata" [
     ];
-    "keyring" -> "sphinx" [color=grey,
-            style=dashed,label="docs",
+    "keyring" -> "jaraco.packaging" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "keyring" -> "pytest-enabler" [color=grey,
-            style=dashed,label="testing",
+    "keyring" -> "sphinx" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "keyring" -> "pytest-cov" [color=grey,
-            style=dashed,label="testing",
+    "keyring" -> "rst.linker" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "keyring" -> "pytest" [color=grey,
-            style=dashed,label="testing",
+    "keyring" -> "pytest-checkdocs" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "keyring" -> "pytest-checkdocs" [color=grey,
-            style=dashed,label="testing",
+    "keyring" -> "pytest-cov" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "keyring" -> "pytest-flake8" [color=grey,
-            style=dashed,label="testing",
+    "keyring" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "keyring" -> "pytest-mypy" [color=grey,
-            style=dashed,label="testing",
+    "keyring" -> "pytest-mypy" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "keyring" -> "pytest-black" [color=grey,
-            style=dashed,label="testing",
+    "keyring" -> "pytest-flake8" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
+    ];
+    "keyring" -> "pytest-enabler" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "keyring" -> "pytest-black" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
     ];
     "jupyter-core" -> "traitlets" [
     ];
-    "jupyter-client" -> "tornado" [
-    ];
-    "jupyter-client" -> "pyzmq" [
-    ];
-    "jupyter-client" -> "python-dateutil" [
-    ];
-    "jupyter-client" -> "jupyter-core" [
+    "jupyter-client" -> "nest-asyncio" [
     ];
     "jupyter-client" -> "traitlets" [
     ];
-    "jupyter-client" -> "sphinxcontrib-github-alt" [color=grey,
-            style=dashed,label="doc",
-        fontcolor=grey
-                
+    "jupyter-client" -> "pyzmq" [
     ];
-    "jupyter-client" -> "sphinx" [color=grey,
-            style=dashed,label="doc",
-        fontcolor=grey
-                
+    "jupyter-client" -> "jupyter-core" [
     ];
-    "jupyter-client" -> "sphinx-rtd-theme" [color=grey,
-            style=dashed,label="doc",
-        fontcolor=grey
-                
+    "jupyter-client" -> "entrypoints" [
     ];
-    "jupyter-client" -> "pytest" [color=grey,
-            style=dashed,label="test",
-        fontcolor=grey
-                
+    "jupyter-client" -> "python-dateutil" [
     ];
-    "jupyter-client" -> "ipykernel" [color=grey,
-            style=dashed,label="test",
-        fontcolor=grey
-                
+    "jupyter-client" -> "tornado" [
     ];
-    "jupyter-client" -> "mock" [color=grey,
-            style=dashed,label="test",
+    "jupyter-client" -> "sphinx-rtd-theme" [
+        color=grey,
+        style=dashed,
+        label="doc",
         fontcolor=grey
-                
     ];
-    "jupyter-client" -> "pytest-asyncio" [color=grey,
-            style=dashed,label="test",
+    "jupyter-client" -> "myst-parser" [
+        color=grey,
+        style=dashed,
+        label="doc",
         fontcolor=grey
-                
     ];
-    "jupyter-client" -> "pytest-timeout" [color=grey,
-            style=dashed,label="test",
+    "jupyter-client" -> "sphinx" [
+        color=grey,
+        style=dashed,
+        label="doc",
         fontcolor=grey
-                
     ];
-    "jupyter-client" -> "async-generator" [color=grey,
-            style=dashed,label="test",
+    "jupyter-client" -> "sphinxcontrib-github-alt" [
+        color=grey,
+        style=dashed,
+        label="doc",
         fontcolor=grey
-                
     ];
-    "jupyter-client" -> "ipython" [color=grey,
-            style=dashed,label="test",
+    "jupyter-client" -> "mypy" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "jupyter-client" -> "jedi" [color=grey,
-            style=dashed,label="test",
+    "jupyter-client" -> "ipykernel" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
+    ];
+    "jupyter-client" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "jupyter-client" -> "pytest-timeout" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "jupyter-client" -> "coverage" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "jupyter-client" -> "pytest-asyncio" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "jupyter-client" -> "pre-commit" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "jupyter-client" -> "pytest-cov" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "jupyter-client" -> "ipython" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "jupyter-client" -> "codecov" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "jupyter-client" -> "mock" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
     ];
     "jinja2" -> "markupsafe" [
     ];
-    "jinja2" -> "babel" [color=grey,
-            style=dashed,label="i18n",
+    "jinja2" -> "babel" [
+        color=grey,
+        style=dashed,
+        label="i18n",
         fontcolor=grey
-                
     ];
-    "jeepney" -> "pytest-trio" [color=grey,
-            style=dashed,label="test",
+    "jeepney" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "jeepney" -> "pytest-asyncio" [color=grey,
-            style=dashed,label="test",
+    "jeepney" -> "trio" [
+        color=grey,
+        style=dashed,
+        label="test,trio",
         fontcolor=grey
-                
     ];
-    "jeepney" -> "pytest" [color=grey,
-            style=dashed,label="test",
+    "jeepney" -> "pytest-asyncio" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "jeepney" -> "trio" [color=grey,
-            style=dashed,label="test",
+    "jeepney" -> "async-timeout" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "jeepney" -> "testpath" [color=grey,
-            style=dashed,label="test",
+    "jeepney" -> "testpath" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
+    ];
+    "jeepney" -> "pytest-trio" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
     ];
     "jedi" -> "parso" [
     ];
-    "jedi" -> "mypy" [color=grey,
-            style=dashed,label="qa",
+    "jedi" -> "mypy" [
+        color=grey,
+        style=dashed,
+        label="qa",
         fontcolor=grey
-                
     ];
-    "jedi" -> "flake8" [color=grey,
-            style=dashed,label="qa",
+    "jedi" -> "flake8" [
+        color=grey,
+        style=dashed,
+        label="qa",
         fontcolor=grey
-                
     ];
-    "jedi" -> "django" [color=grey,
-            style=dashed,label="testing",
+    "jedi" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "jedi" -> "colorama" [color=grey,
-            style=dashed,label="testing",
+    "jedi" -> "colorama" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "jedi" -> "pytest" [color=grey,
-            style=dashed,label="testing",
+    "jedi" -> "docopt" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "jedi" -> "docopt" [color=grey,
-            style=dashed,label="testing",
+    "jedi" -> "django" [
+        color=grey,
+        style=dashed,
+        label="testing",
         fontcolor=grey
-                
     ];
-    "ipython" -> "pygments" [
-    ];
-    "ipython" -> "pexpect" [
-    ];
-    "ipython" -> "prompt-toolkit" [
-    ];
-    "ipython" -> "decorator" [
-    ];
-    "ipython" -> "pickleshare" [
-    ];
-    "ipython" -> "backcall" [
-    ];
-    "ipython" -> "jedi" [
-    ];
-    "ipython" -> "setuptools" [
+    "ipython" -> "matplotlib-inline" [
     ];
     "ipython" -> "traitlets" [
     ];
-    "ipython" -> "ipyparallel" [color=grey,
-            style=dashed,label="all,parallel",
+    "ipython" -> "prompt-toolkit" [
+    ];
+    "ipython" -> "pexpect" [
+    ];
+    "ipython" -> "setuptools" [
+    ];
+    "ipython" -> "pygments" [
+    ];
+    "ipython" -> "backcall" [
+    ];
+    "ipython" -> "pickleshare" [
+    ];
+    "ipython" -> "jedi" [
+    ];
+    "ipython" -> "decorator" [
+    ];
+    "ipython" -> "nbconvert" [
+        color=grey,
+        style=dashed,
+        label="all,nbconvert",
         fontcolor=grey
-                
     ];
-    "ipython" -> "nose" [color=grey,
-            style=dashed,label="all,test",
+    "ipython" -> "ipywidgets" [
+        color=grey,
+        style=dashed,
+        label="all,notebook",
         fontcolor=grey
-                
     ];
-    "ipython" -> "ipywidgets" [color=grey,
-            style=dashed,label="all,notebook",
+    "ipython" -> "notebook" [
+        color=grey,
+        style=dashed,
+        label="all,notebook",
         fontcolor=grey
-                
     ];
-    "ipython" -> "ipykernel" [color=grey,
-            style=dashed,label="all,kernel,test",
+    "ipython" -> "sphinx" [
+        color=grey,
+        style=dashed,
+        label="all,doc",
         fontcolor=grey
-                
     ];
-    "ipython" -> "nbconvert" [color=grey,
-            style=dashed,label="all,nbconvert",
+    "ipython" -> "numpy" [
+        color=grey,
+        style=dashed,
+        label="all,test",
         fontcolor=grey
-                
     ];
-    "ipython" -> "notebook" [color=grey,
-            style=dashed,label="all,notebook",
+    "ipython" -> "nose" [
+        color=grey,
+        style=dashed,
+        label="all,test",
         fontcolor=grey
-                
     ];
-    "ipython" -> "numpy" [color=grey,
-            style=dashed,label="all,test",
+    "ipython" -> "nbformat" [
+        color=grey,
+        style=dashed,
+        label="all,nbformat,test",
         fontcolor=grey
-                
     ];
-    "ipython" -> "requests" [color=grey,
-            style=dashed,label="all,test",
+    "ipython" -> "qtconsole" [
+        color=grey,
+        style=dashed,
+        label="all,qtconsole",
         fontcolor=grey
-                
     ];
-    "ipython" -> "sphinx" [color=grey,
-            style=dashed,label="all,doc",
+    "ipython" -> "requests" [
+        color=grey,
+        style=dashed,
+        label="all,test",
         fontcolor=grey
-                
     ];
-    "ipython" -> "qtconsole" [color=grey,
-            style=dashed,label="all,qtconsole",
+    "ipython" -> "ipykernel" [
+        color=grey,
+        style=dashed,
+        label="all,kernel,test",
         fontcolor=grey
-                
     ];
-    "ipython" -> "nbformat" [color=grey,
-            style=dashed,label="all,nbformat,test",
+    "ipython" -> "ipyparallel" [
+        color=grey,
+        style=dashed,
+        label="all,parallel",
         fontcolor=grey
-                
     ];
-    "ipython" -> "testpath" [color=grey,
-            style=dashed,label="all,test",
+    "ipython" -> "testpath" [
+        color=grey,
+        style=dashed,
+        label="all,test",
         fontcolor=grey
-                
     ];
-    "ipykernel" -> "ipython" [
+    "ipykernel" -> "debugpy" [
     ];
-    "ipykernel" -> "traitlets" [
-    ];
-    "ipykernel" -> "tornado" [
+    "ipykernel" -> "matplotlib-inline" [
     ];
     "ipykernel" -> "jupyter-client" [
     ];
-    "ipykernel" -> "nose" [color=grey,
-            style=dashed,label="test",
-        fontcolor=grey
-                
+    "ipykernel" -> "ipython" [
     ];
-    "ipykernel" -> "pytest" [color=grey,
-            style=dashed,label="test",
-        fontcolor=grey
-                
+    "ipykernel" -> "tornado" [
     ];
-    "ipykernel" -> "pytest-cov" [color=grey,
-            style=dashed,label="test",
-        fontcolor=grey
-                
+    "ipykernel" -> "traitlets" [
     ];
-    "ipykernel" -> "flaky" [color=grey,
-            style=dashed,label="test",
+    "ipykernel" -> "ipyparallel" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "ipykernel" -> "jedi" [color=grey,
-            style=dashed,label="test",
+    "ipykernel" -> "nose" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
+    ];
+    "ipykernel" -> "pytest-cov" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "ipykernel" -> "flaky" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "ipykernel" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "zipp" [
+    ];
+    "importlib-metadata" -> "jaraco.packaging" [
+        color=grey,
+        style=dashed,
+        label="docs",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "sphinx" [
+        color=grey,
+        style=dashed,
+        label="docs",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "rst.linker" [
+        color=grey,
+        style=dashed,
+        label="docs",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "ipython" [
+        color=grey,
+        style=dashed,
+        label="perf",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "packaging" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "importlib-resources" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pyfakefs" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pytest-checkdocs" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pytest-cov" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pep517" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pytest-perf" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pytest-flake8" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pytest-mypy" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "flufl.flake8" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pytest-enabler" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
+    ];
+    "importlib-metadata" -> "pytest-black" [
+        color=grey,
+        style=dashed,
+        label="testing",
+        fontcolor=grey
     ];
     "cryptography" -> "cffi" [
     ];
-    "cryptography" -> "six" [
-    ];
-    "cryptography" -> "sphinx-rtd-theme" [color=grey,
-            style=dashed,label="docs",
+    "cryptography" -> "sphinx" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "sphinx" [color=grey,
-            style=dashed,label="docs",
+    "cryptography" -> "sphinx-rtd-theme" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "sphinxcontrib-spelling" [color=grey,
-            style=dashed,label="docstest",
+    "cryptography" -> "sphinxcontrib-spelling" [
+        color=grey,
+        style=dashed,
+        label="docstest",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "twine" [color=grey,
-            style=dashed,label="docstest",
+    "cryptography" -> "pyenchant" [
+        color=grey,
+        style=dashed,
+        label="docstest",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "doc8" [color=grey,
-            style=dashed,label="docstest",
+    "cryptography" -> "twine" [
+        color=grey,
+        style=dashed,
+        label="docstest",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "pyenchant" [color=grey,
-            style=dashed,label="docstest",
+    "cryptography" -> "flake8-import-order" [
+        color=grey,
+        style=dashed,
+        label="pep8test",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "flake8-import-order" [color=grey,
-            style=dashed,label="pep8test",
+    "cryptography" -> "flake8" [
+        color=grey,
+        style=dashed,
+        label="pep8test",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "flake8" [color=grey,
-            style=dashed,label="pep8test",
+    "cryptography" -> "black" [
+        color=grey,
+        style=dashed,
+        label="pep8test",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "black" [color=grey,
-            style=dashed,label="pep8test",
+    "cryptography" -> "pep8-naming" [
+        color=grey,
+        style=dashed,
+        label="pep8test",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "pep8-naming" [color=grey,
-            style=dashed,label="pep8test",
+    "cryptography" -> "setuptools-rust" [
+        color=grey,
+        style=dashed,
+        label="sdist",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "bcrypt" [color=grey,
-            style=dashed,label="ssh",
+    "cryptography" -> "bcrypt" [
+        color=grey,
+        style=dashed,
+        label="ssh",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "pytest" [color=grey,
-            style=dashed,label="test",
+    "cryptography" -> "iso8601" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "hypothesis" [color=grey,
-            style=dashed,label="test",
+    "cryptography" -> "pretend" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "iso8601" [color=grey,
-            style=dashed,label="test",
+    "cryptography" -> "pytest-xdist" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "pretend" [color=grey,
-            style=dashed,label="test",
+    "cryptography" -> "hypothesis" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "cryptography" -> "pytz" [color=grey,
-            style=dashed,label="test",
+    "cryptography" -> "pytest-cov" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
+    ];
+    "cryptography" -> "pytest-subtests" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "cryptography" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "cryptography" -> "pytz" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "charset-normalizer" -> "unicodedata2" [
+        color=grey,
+        style=dashed,
+        label="unicode_backport",
+        fontcolor=grey
     ];
     "cffi" -> "pycparser" [
     ];
-    "build" -> "toml" [
+    "build" -> "packaging" [
     ];
     "build" -> "pep517" [
     ];
-    "build" -> "packaging" [
+    "build" -> "tomli" [
     ];
-    "build" -> "sphinx-autodoc-typehints" [color=grey,
-            style=dashed,label="doc",
+    "build" -> "sphinx-argparse-cli" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "build" -> "sphinx" [color=grey,
-            style=dashed,label="doc",
+    "build" -> "sphinx" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "build" -> "furo" [color=grey,
-            style=dashed,label="doc",
+    "build" -> "furo" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "build" -> "sphinxcontrib-autoprogram" [color=grey,
-            style=dashed,label="doc",
+    "build" -> "sphinx-autodoc-typehints" [
+        color=grey,
+        style=dashed,
+        label="docs",
         fontcolor=grey
-                
     ];
-    "build" -> "pytest-xdist" [color=grey,
-            style=dashed,label="test",
+    "build" -> "pytest" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "build" -> "filelock" [color=grey,
-            style=dashed,label="test",
+    "build" -> "pytest-mock" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "build" -> "pytest-mock" [color=grey,
-            style=dashed,label="test",
+    "build" -> "pytest-rerunfailures" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "build" -> "pytest-cov" [color=grey,
-            style=dashed,label="test",
+    "build" -> "filelock" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "build" -> "pytest" [color=grey,
-            style=dashed,label="test",
+    "build" -> "pytest-xdist" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "build" -> "typing-extensions" [color=grey,
-            style=dashed,label="typing",
+    "build" -> "pytest-cov" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
     ];
-    "build" -> "mypy" [color=grey,
-            style=dashed,label="typing",
+    "build" -> "setuptools" [
+        color=grey,
+        style=dashed,
+        label="test",
         fontcolor=grey
-                
+    ];
+    "build" -> "wheel" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "build" -> "toml" [
+        color=grey,
+        style=dashed,
+        label="test",
+        fontcolor=grey
+    ];
+    "build" -> "importlib-metadata" [
+        color=grey,
+        style=dashed,
+        label="typing",
+        fontcolor=grey
+    ];
+    "build" -> "mypy" [
+        color=grey,
+        style=dashed,
+        label="typing",
+        fontcolor=grey
+    ];
+    "build" -> "typing-extensions" [
+        color=grey,
+        style=dashed,
+        label="typing",
+        fontcolor=grey
+    ];
+    "build" -> "virtualenv" [
+        color=grey,
+        style=dashed,
+        label="virtualenv",
+        fontcolor=grey
     ];
     "bleach" -> "six" [
     ];
+    "bleach" -> "webencodings" [
+    ];
     "bleach" -> "packaging" [
     ];
-    "bleach" -> "webencodings" [
+    "autopep8" -> "toml" [
     ];
     "autopep8" -> "pycodestyle" [
     ];
-    "autopep8" -> "toml" [
+    "pipdot" -> "pip" [
     ];
     "pipdot" -> "jinja2" [
     ];
