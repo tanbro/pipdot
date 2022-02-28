@@ -1,20 +1,18 @@
 digraph {
     rankdir = "LR";
 
-    node [color=grey, style=dotted]
-    edge [color="#61c2c5", style="filled,setlinewidth(2)", fontcolor=grey]
+    node [color=grey, style=dotted];
+    edge [color="#61c2c5", style="filled,setlinewidth(2)", fontcolor=grey];
 
 {# nodes #}
-{%- set dist_keys = [] -%}
+{%- set dist_keys = [] %}
 
     subgraph {
         node [shape=box,color="#51bf5b",fillcolor="#91b5c9",style="dotted,filled,setlinewidth(4)"];
-{%- for dist in editable_distributions %}
+{%- for dist in editable_distributions -%}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
-        "{{ dist.canonical_name }}" [
-            label="{{ dist.raw_name }}\n{{ dist.version }}"
-        ];
+        "{{ dist.canonical_name }}" [label="{{ dist.raw_name }}\n{{ dist.version }}"];
     {%- endif %}
 {%- endfor %}
     }
@@ -24,9 +22,7 @@ digraph {
 {%- for dist in local_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
-        "{{ dist.canonical_name }}" [
-            label="{{ dist.raw_name }}\n{{ dist.version }}"
-        ];
+        "{{ dist.canonical_name }}" [label="{{ dist.raw_name }}\n{{ dist.version }}"];
     {%- endif %}
 {%- endfor %}
     }
@@ -36,9 +32,7 @@ digraph {
 {%- for dist in site_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
-        "{{ dist.canonical_name }}" [
-            label="{{ dist.raw_name }}\n{{ dist.version }}"
-        ];
+        "{{ dist.canonical_name }}" [label="{{ dist.raw_name }}\n{{ dist.version }}"];
     {%- endif %}
 {%- endfor %}
     }
@@ -48,9 +42,7 @@ digraph {
 {%- for dist in user_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
-        "{{ dist.canonical_name }}" [
-            label="{{ dist.raw_name }}\n{{ dist.version }}"
-        ];
+        "{{ dist.canonical_name }}" [label="{{ dist.raw_name }}\n{{ dist.version }}"];
     {%- endif %}
 {%- endfor %}
     }
@@ -60,15 +52,13 @@ digraph {
 {%- for dist in installed_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
-    "{{ dist.canonical_name }}" [
-        label="{{ dist.raw_name }}\n{{ dist.version }}"
-    ];
+    "{{ dist.canonical_name }}" [label="{{ dist.raw_name }}\n{{ dist.version }}"];
     {%- endif %}
 {%- endfor %}
     }
 
 {# edges #}
-{%- for dist in installed_distributions %}
+{%- for dist in installed_distributions -%}
 
     {%- set extras_mapping={} -%}
 
@@ -76,30 +66,28 @@ digraph {
         {%- if canonicalize_name(require.key) not in extras_mapping -%}
             {%- do extras_mapping.update({canonicalize_name(require.key):[""]}) -%}
         {%- endif -%}
-    {%- endfor %}
+    {%- endfor -%}
 
-    {%- for extra in dist.iter_provided_extras() -%}
-        {% for require in dist.iter_dependencies((extra, )) %}
-            {%- if canonicalize_name(require.key) in extras_mapping -%}
+    {%- for extra in dist.iter_provided_extras() %}
+        {%- for require in dist.iter_dependencies((extra, )) %}
+            {%- if canonicalize_name(require.key) in extras_mapping %}
                 {%- do extras_mapping[canonicalize_name(require.key)].append(extra) -%}
-            {%- else -%}
+            {%- else %}
                 {%- do extras_mapping.update({canonicalize_name(require.key): [extra]}) -%}
-            {%- endif -%}
+            {%- endif %}
             {%- if not installed_only and canonicalize_name(require.key) not in dist_keys %}
     "{{ canonicalize_name(require.key) }}" [label="{{ require.project_name }}",fontcolor=grey];
-            {%- endif -%}
-        {%- endfor -%}
-    {%- endfor -%}
+            {%- endif %}
+        {%- endfor %}
+    {%- endfor %}
 
     {%- for require_canonical_name, extras in extras_mapping.items() %}
         {%- if not installed_only or require_canonical_name in dist_keys %}
     "{{ dist.canonical_name }}" -> "{{ require_canonical_name }}" [
             {%- if require_canonical_name not in dist_keys -%}
         color=grey,style=dotted,
-            {%- else -%}
-                {%- if "" not in extras -%}
+            {%- elif "" not in extras -%}
         style="dashed,setlinewidth(2)",
-                {%- endif -%}
             {%- endif -%}
             {%- if show_extras_label -%}
         label="{{ extras | reject("eq", "") | join(',') }}",
