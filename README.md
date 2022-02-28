@@ -15,7 +15,7 @@ A [pip][] `>=22.0` is needed.
 Generate a [GraphViz][] `dot` file:
 
 ```sh
-pipdot --include-extras --show-extras-label 1.dot
+pipdot --show-extras-label 1.dot
 ```
 
 Convert it to a `svg` (or other formats) image:
