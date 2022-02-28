@@ -1,265 +1,114 @@
 digraph {
     rankdir = "LR";
 
-    node [color=grey, style=dotted]
-    edge [color="#61c2c5", style="filled,setlinewidth(2)", fontcolor=grey]
+    node [color=grey, style=dotted];
+    edge [color="#61c2c5", style="filled,setlinewidth(2)", fontcolor=grey];
 
-subgraph {
-        node [
-            shape=box,
-            color="#51bf5b",
-            fillcolor="#91b5c9",
-            style="dotted,filled,setlinewidth(4)"
-        ];
-        "pipdot" [
-            label="pipdot\n0.1.1"
-        ];
+
+
+    subgraph {
+        node [shape=box,color="#51bf5b",fillcolor="#91b5c9",style="dotted,filled,setlinewidth(4)"];
+        "pipdot" [label="pipdot\n0.1.1"];
     }
 
     subgraph {
-        node [
-            shape=egg,
-            color="#8383cc",
-            fillcolor="#d9e7ee",
-            style="filled,setlinewidth(4)"
-        ];
-        "zipp" [
-            label="zipp\n3.7.0"
-        ];
-        "webencodings" [
-            label="webencodings\n0.5.1"
-        ];
-        "wcwidth" [
-            label="wcwidth\n0.2.5"
-        ];
-        "urllib3" [
-            label="urllib3\n1.26.8"
-        ];
-        "twine" [
-            label="twine\n3.8.0"
-        ];
-        "traitlets" [
-            label="traitlets\n5.1.1"
-        ];
-        "tqdm" [
-            label="tqdm\n4.62.3"
-        ];
-        "tornado" [
-            label="tornado\n6.1"
-        ];
-        "tomli" [
-            label="tomli\n2.0.1"
-        ];
-        "toml" [
-            label="toml\n0.10.2"
-        ];
-        "stack-data" [
-            label="stack-data\n0.2.0"
-        ];
-        "six" [
-            label="six\n1.16.0"
-        ];
-        "setuptools" [
-            label="setuptools\n60.9.3"
-        ];
-        "secretstorage" [
-            label="SecretStorage\n3.3.1"
-        ];
-        "rfc3986" [
-            label="rfc3986\n2.0.0"
-        ];
-        "requests" [
-            label="requests\n2.27.1"
-        ];
-        "requests-toolbelt" [
-            label="requests-toolbelt\n0.9.1"
-        ];
-        "readme-renderer" [
-            label="readme-renderer\n32.0"
-        ];
-        "pyzmq" [
-            label="pyzmq\n22.3.0"
-        ];
-        "python-dateutil" [
-            label="python-dateutil\n2.8.2"
-        ];
-        "pyparsing" [
-            label="pyparsing\n3.0.7"
-        ];
-        "pygments" [
-            label="Pygments\n2.11.2"
-        ];
-        "pycparser" [
-            label="pycparser\n2.21"
-        ];
-        "pycodestyle" [
-            label="pycodestyle\n2.8.0"
-        ];
-        "pure-eval" [
-            label="pure-eval\n0.2.2"
-        ];
-        "ptyprocess" [
-            label="ptyprocess\n0.7.0"
-        ];
-        "prompt-toolkit" [
-            label="prompt-toolkit\n3.0.28"
-        ];
-        "pkginfo" [
-            label="pkginfo\n1.8.2"
-        ];
-        "pkg-resources" [
-            label="pkg_resources\n0.0.0"
-        ];
-        "pip" [
-            label="pip\n22.0.3"
-        ];
-        "pickleshare" [
-            label="pickleshare\n0.7.5"
-        ];
-        "pexpect" [
-            label="pexpect\n4.8.0"
-        ];
-        "pep517" [
-            label="pep517\n0.12.0"
-        ];
-        "parso" [
-            label="parso\n0.8.3"
-        ];
-        "packaging" [
-            label="packaging\n21.3"
-        ];
-        "nest-asyncio" [
-            label="nest-asyncio\n1.5.4"
-        ];
-        "matplotlib-inline" [
-            label="matplotlib-inline\n0.1.3"
-        ];
-        "markupsafe" [
-            label="MarkupSafe\n2.1.0"
-        ];
-        "keyring" [
-            label="keyring\n23.5.0"
-        ];
-        "jupyter-core" [
-            label="jupyter-core\n4.9.2"
-        ];
-        "jupyter-client" [
-            label="jupyter-client\n7.1.2"
-        ];
-        "jinja2" [
-            label="Jinja2\n3.0.3"
-        ];
-        "jeepney" [
-            label="jeepney\n0.7.1"
-        ];
-        "jedi" [
-            label="jedi\n0.18.1"
-        ];
-        "ipython" [
-            label="ipython\n8.1.0"
-        ];
-        "ipykernel" [
-            label="ipykernel\n6.9.1"
-        ];
-        "importlib-metadata" [
-            label="importlib-metadata\n4.11.2"
-        ];
-        "idna" [
-            label="idna\n3.3"
-        ];
-        "executing" [
-            label="executing\n0.8.2"
-        ];
-        "entrypoints" [
-            label="entrypoints\n0.4"
-        ];
-        "docutils" [
-            label="docutils\n0.18.1"
-        ];
-        "decorator" [
-            label="decorator\n5.1.1"
-        ];
-        "debugpy" [
-            label="debugpy\n1.5.1"
-        ];
-        "cryptography" [
-            label="cryptography\n36.0.1"
-        ];
-        "colorama" [
-            label="colorama\n0.4.4"
-        ];
-        "charset-normalizer" [
-            label="charset-normalizer\n2.0.12"
-        ];
-        "cffi" [
-            label="cffi\n1.15.0"
-        ];
-        "certifi" [
-            label="certifi\n2021.10.8"
-        ];
-        "build" [
-            label="build\n0.7.0"
-        ];
-        "bleach" [
-            label="bleach\n4.1.0"
-        ];
-        "backcall" [
-            label="backcall\n0.2.0"
-        ];
-        "autopep8" [
-            label="autopep8\n1.6.0"
-        ];
-        "asttokens" [
-            label="asttokens\n2.0.5"
-        ];
+        node [shape=egg,color="#8383cc",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
+        "zipp" [label="zipp\n3.7.0"];
+        "webencodings" [label="webencodings\n0.5.1"];
+        "wcwidth" [label="wcwidth\n0.2.5"];
+        "urllib3" [label="urllib3\n1.26.8"];
+        "twine" [label="twine\n3.8.0"];
+        "traitlets" [label="traitlets\n5.1.1"];
+        "tqdm" [label="tqdm\n4.62.3"];
+        "tornado" [label="tornado\n6.1"];
+        "tomli" [label="tomli\n2.0.1"];
+        "toml" [label="toml\n0.10.2"];
+        "stack-data" [label="stack-data\n0.2.0"];
+        "six" [label="six\n1.16.0"];
+        "setuptools" [label="setuptools\n60.9.3"];
+        "secretstorage" [label="SecretStorage\n3.3.1"];
+        "rfc3986" [label="rfc3986\n2.0.0"];
+        "requests" [label="requests\n2.27.1"];
+        "requests-toolbelt" [label="requests-toolbelt\n0.9.1"];
+        "readme-renderer" [label="readme-renderer\n32.0"];
+        "pyzmq" [label="pyzmq\n22.3.0"];
+        "python-dateutil" [label="python-dateutil\n2.8.2"];
+        "pyparsing" [label="pyparsing\n3.0.7"];
+        "pygments" [label="Pygments\n2.11.2"];
+        "pycparser" [label="pycparser\n2.21"];
+        "pycodestyle" [label="pycodestyle\n2.8.0"];
+        "pure-eval" [label="pure-eval\n0.2.2"];
+        "ptyprocess" [label="ptyprocess\n0.7.0"];
+        "prompt-toolkit" [label="prompt-toolkit\n3.0.28"];
+        "pkginfo" [label="pkginfo\n1.8.2"];
+        "pkg-resources" [label="pkg_resources\n0.0.0"];
+        "pip" [label="pip\n22.0.3"];
+        "pickleshare" [label="pickleshare\n0.7.5"];
+        "pexpect" [label="pexpect\n4.8.0"];
+        "pep517" [label="pep517\n0.12.0"];
+        "parso" [label="parso\n0.8.3"];
+        "packaging" [label="packaging\n21.3"];
+        "nest-asyncio" [label="nest-asyncio\n1.5.4"];
+        "matplotlib-inline" [label="matplotlib-inline\n0.1.3"];
+        "markupsafe" [label="MarkupSafe\n2.1.0"];
+        "keyring" [label="keyring\n23.5.0"];
+        "jupyter-core" [label="jupyter-core\n4.9.2"];
+        "jupyter-client" [label="jupyter-client\n7.1.2"];
+        "jinja2" [label="Jinja2\n3.0.3"];
+        "jeepney" [label="jeepney\n0.7.1"];
+        "jedi" [label="jedi\n0.18.1"];
+        "ipython" [label="ipython\n8.1.0"];
+        "ipykernel" [label="ipykernel\n6.9.1"];
+        "importlib-metadata" [label="importlib-metadata\n4.11.2"];
+        "idna" [label="idna\n3.3"];
+        "executing" [label="executing\n0.8.2"];
+        "entrypoints" [label="entrypoints\n0.4"];
+        "docutils" [label="docutils\n0.18.1"];
+        "decorator" [label="decorator\n5.1.1"];
+        "debugpy" [label="debugpy\n1.5.1"];
+        "cryptography" [label="cryptography\n36.0.1"];
+        "colorama" [label="colorama\n0.4.4"];
+        "charset-normalizer" [label="charset-normalizer\n2.0.12"];
+        "cffi" [label="cffi\n1.15.0"];
+        "certifi" [label="certifi\n2021.10.8"];
+        "build" [label="build\n0.7.0"];
+        "bleach" [label="bleach\n4.1.0"];
+        "backcall" [label="backcall\n0.2.0"];
+        "autopep8" [label="autopep8\n1.6.0"];
+        "asttokens" [label="asttokens\n2.0.5"];
     }
 
     subgraph {
-        node [
-            shape=polygon,
-            color="#61c2c5",
-            fillcolor="#d9e7ee",
-            style="filled,setlinewidth(4)"
-        ];
+        node [shape=polygon,color="#61c2c5",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
     }
 
     subgraph {
-        node [
-            shape=septagon,
-            color="#e27dd6ff",
-            fillcolor="#d9e7ee",
-            style="filled,setlinewidth(4)"
-        ];
+        node [shape=septagon,color="#e27dd6ff",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
     }
 
     subgraph {
-        node [
-            shape=octagon,
-            color="#e27dd6ff",
-            fillcolor="#d9e7ee",
-            style="filled,setlinewidth(4)"
-        ];
+        node [shape=octagon,color="#e27dd6ff",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
     }
 
 
+    "urllib3" -> "cryptography" [style="dashed,setlinewidth(2)",label="secure",];
     "urllib3" -> "certifi" [style="dashed,setlinewidth(2)",label="secure",];
     "urllib3" -> "idna" [style="dashed,setlinewidth(2)",label="secure",];
-    "urllib3" -> "cryptography" [style="dashed,setlinewidth(2)",label="secure",];
-    "twine" -> "requests-toolbelt" [label="",];
-    "twine" -> "pkginfo" [label="",];
-    "twine" -> "keyring" [label="",];
-    "twine" -> "requests" [label="",];
-    "twine" -> "readme-renderer" [label="",];
-    "twine" -> "urllib3" [label="",];
     "twine" -> "importlib-metadata" [label="",];
-    "twine" -> "rfc3986" [label="",];
+    "twine" -> "keyring" [label="",];
+    "twine" -> "requests-toolbelt" [label="",];
+    "twine" -> "readme-renderer" [label="",];
     "twine" -> "tqdm" [label="",];
     "twine" -> "colorama" [label="",];
+    "twine" -> "requests" [label="",];
+    "twine" -> "rfc3986" [label="",];
+    "twine" -> "pkginfo" [label="",];
+    "twine" -> "urllib3" [label="",];
     "tqdm" -> "twine" [style="dashed,setlinewidth(2)",label="dev",];
     "tqdm" -> "requests" [style="dashed,setlinewidth(2)",label="telegram",];
+    "stack-data" -> "pure-eval" [label="tests",];
     "stack-data" -> "asttokens" [label="tests",];
     "stack-data" -> "executing" [label="tests",];
-    "stack-data" -> "pure-eval" [label="tests",];
     "stack-data" -> "pygments" [style="dashed,setlinewidth(2)",label="tests",];
     "setuptools" -> "build" [style="dashed,setlinewidth(2)",label="testing,testing-integration",];
     "setuptools" -> "pip" [style="dashed,setlinewidth(2)",label="testing",];
@@ -267,14 +116,14 @@ subgraph {
     "secretstorage" -> "cryptography" [label="",];
     "secretstorage" -> "jeepney" [label="",];
     "rfc3986" -> "idna" [style="dashed,setlinewidth(2)",label="idna2008",];
-    "requests" -> "certifi" [label="security,socks,use_chardet_on_py3",];
     "requests" -> "urllib3" [label="security,socks,use_chardet_on_py3",];
-    "requests" -> "charset-normalizer" [label="security,socks,use_chardet_on_py3",];
+    "requests" -> "certifi" [label="security,socks,use_chardet_on_py3",];
     "requests" -> "idna" [label="security,socks,use_chardet_on_py3",];
+    "requests" -> "charset-normalizer" [label="security,socks,use_chardet_on_py3",];
     "requests-toolbelt" -> "requests" [label="",];
+    "readme-renderer" -> "docutils" [label="md",];
     "readme-renderer" -> "bleach" [label="md",];
     "readme-renderer" -> "pygments" [label="md",];
-    "readme-renderer" -> "docutils" [label="md",];
     "python-dateutil" -> "six" [label="",];
     "pyparsing" -> "jinja2" [style="dashed,setlinewidth(2)",label="diagrams",];
     "prompt-toolkit" -> "wcwidth" [label="",];
@@ -282,41 +131,41 @@ subgraph {
     "pep517" -> "tomli" [label="",];
     "packaging" -> "pyparsing" [label="",];
     "matplotlib-inline" -> "traitlets" [label="",];
-    "keyring" -> "importlib-metadata" [label="docs,testing",];
     "keyring" -> "jeepney" [label="docs,testing",];
+    "keyring" -> "importlib-metadata" [label="docs,testing",];
     "keyring" -> "secretstorage" [label="docs,testing",];
     "jupyter-core" -> "traitlets" [label="",];
-    "jupyter-client" -> "tornado" [label="doc,test",];
-    "jupyter-client" -> "python-dateutil" [label="doc,test",];
     "jupyter-client" -> "nest-asyncio" [label="doc,test",];
-    "jupyter-client" -> "entrypoints" [label="doc,test",];
-    "jupyter-client" -> "pyzmq" [label="doc,test",];
+    "jupyter-client" -> "python-dateutil" [label="doc,test",];
     "jupyter-client" -> "jupyter-core" [label="doc,test",];
+    "jupyter-client" -> "pyzmq" [label="doc,test",];
+    "jupyter-client" -> "entrypoints" [label="doc,test",];
     "jupyter-client" -> "traitlets" [label="doc,test",];
+    "jupyter-client" -> "tornado" [label="doc,test",];
     "jupyter-client" -> "ipython" [style="dashed,setlinewidth(2)",label="test",];
     "jupyter-client" -> "ipykernel" [style="dashed,setlinewidth(2)",label="test",];
     "jinja2" -> "markupsafe" [label="i18n",];
     "jedi" -> "parso" [label="qa,testing",];
     "jedi" -> "colorama" [style="dashed,setlinewidth(2)",label="testing",];
-    "ipython" -> "pygments" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
-    "ipython" -> "stack-data" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
-    "ipython" -> "jedi" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
-    "ipython" -> "prompt-toolkit" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
-    "ipython" -> "setuptools" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
-    "ipython" -> "decorator" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
-    "ipython" -> "pickleshare" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
-    "ipython" -> "pexpect" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
-    "ipython" -> "matplotlib-inline" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
     "ipython" -> "backcall" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
     "ipython" -> "traitlets" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "matplotlib-inline" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "pygments" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "setuptools" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "prompt-toolkit" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "pexpect" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "pickleshare" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "stack-data" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "jedi" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
+    "ipython" -> "decorator" [label="all,black,doc,kernel,nbconvert,nbformat,notebook,parallel,qtconsole,terminal,test,test_extra",];
     "ipython" -> "ipykernel" [style="dashed,setlinewidth(2)",label="all,kernel",];
-    "ipykernel" -> "debugpy" [label="test",];
-    "ipykernel" -> "matplotlib-inline" [label="test",];
-    "ipykernel" -> "traitlets" [label="test",];
-    "ipykernel" -> "jupyter-client" [label="test",];
-    "ipykernel" -> "tornado" [label="test",];
-    "ipykernel" -> "ipython" [label="test",];
     "ipykernel" -> "nest-asyncio" [label="test",];
+    "ipykernel" -> "tornado" [label="test",];
+    "ipykernel" -> "matplotlib-inline" [label="test",];
+    "ipykernel" -> "debugpy" [label="test",];
+    "ipykernel" -> "jupyter-client" [label="test",];
+    "ipykernel" -> "traitlets" [label="test",];
+    "ipykernel" -> "ipython" [label="test",];
     "importlib-metadata" -> "zipp" [label="docs,perf,testing",];
     "importlib-metadata" -> "ipython" [style="dashed,setlinewidth(2)",label="perf",];
     "importlib-metadata" -> "packaging" [style="dashed,setlinewidth(2)",label="testing",];
@@ -326,14 +175,14 @@ subgraph {
     "build" -> "tomli" [label="docs,test,typing,virtualenv",];
     "build" -> "packaging" [label="docs,test,typing,virtualenv",];
     "build" -> "pep517" [label="docs,test,typing,virtualenv",];
-    "build" -> "toml" [style="dashed,setlinewidth(2)",label="test",];
     "build" -> "setuptools" [style="dashed,setlinewidth(2)",label="test",];
+    "build" -> "toml" [style="dashed,setlinewidth(2)",label="test",];
     "build" -> "importlib-metadata" [style="dashed,setlinewidth(2)",label="typing",];
     "bleach" -> "webencodings" [label="",];
-    "bleach" -> "six" [label="",];
     "bleach" -> "packaging" [label="",];
-    "autopep8" -> "toml" [label="",];
+    "bleach" -> "six" [label="",];
     "autopep8" -> "pycodestyle" [label="",];
+    "autopep8" -> "toml" [label="",];
     "asttokens" -> "six" [label="test",];
     "pipdot" -> "pip" [label="",];
     "pipdot" -> "jinja2" [label="",];

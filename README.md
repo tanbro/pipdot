@@ -1,5 +1,12 @@
 # pipdot
 
+![GitHub](https://img.shields.io/github/license/tanbro/pipdot)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/tanbro/pipdot)
+![PyPI](https://img.shields.io/pypi/v/pipdot)
+![PyPI - Status](https://img.shields.io/pypi/status/pipdot)
+![PyPI - License](https://img.shields.io/pypi/l/pipdot)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipdot)
+
 Generate a [GraphViz][] `dot` file representing installed [PyPI][] distributions.
 
 ## Installation
