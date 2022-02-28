@@ -95,47 +95,45 @@ digraph {
 {# edges #}
 {%- for dist in installed_distributions %}
 
-    {%- if include_extras -%}
-        {%- set key_extras_map={} -%}
+    {%- set extras_mapping={} -%}
 
-        {%- for require in dist.iter_dependencies() -%}
-            {%- if require.key not in key_extras_map -%}
-                {%- do key_extras_map.update({require.key:[""]}) -%}
+    {%- for require in dist.iter_dependencies() -%}
+        {%- if canonicalize_name(require.key) not in extras_mapping -%}
+            {%- do extras_mapping.update({canonicalize_name(require.key):[""]}) -%}
+        {%- endif -%}
+    {%- endfor %}
+
+
+    {%- for extra in dist.iter_provided_extras() -%}
+        {% for require in dist.iter_dependencies((extra, )) %}
+            {%- if canonicalize_name(require.key) in extras_mapping -%}
+                {%- do extras_mapping[canonicalize_name(require.key)].append(extra) -%}
+            {%- else -%}
+                {%- do extras_mapping.update({canonicalize_name(require.key): [extra]}) -%}
             {%- endif -%}
-        {%- endfor %}
-
-        {%- for extra in dist.iter_provided_extras() -%}
-            {% for require in dist.iter_dependencies((extra, )) %}
-                {%- if canonicalize_name(require.key) in key_extras_map -%}
-                    {%- do key_extras_map[canonicalize_name(require.key)].append(extra) -%}
-                {%- else -%}
-                    {%- do key_extras_map.update({canonicalize_name(require.key): [extra]}) -%}
-                {%- endif -%}
-            {%- endfor -%}
+            {%- if not installed_only and canonicalize_name(require.key) not in dist_keys %}
+    subgraph {
+        node [fontcolor=grey]
+        "{{ canonicalize_name(require.key) }}" [label="{{ require.project_name }}"];
+    }
+            {%- endif %}
         {%- endfor -%}
+    {%- endfor -%}
 
-        {%- for dep_key, extras in key_extras_map.items() %}
-    "{{ dist.canonical_name }}" -> "{{ dep_key }}" [
-            {%- if "" not in extras %}
-        color=grey,
-            {%- endif %}
-            {%- if "" not in extras %}
-        style=dashed,
-                {%- if show_extras_label %}
+    {%- for require_canonical_name, extras in extras_mapping.items() %}
+        {%- if not installed_only or require_canonical_name in dist_keys %}
+    "{{ dist.canonical_name }}" -> "{{ require_canonical_name }}" [
+            {%- if require_canonical_name not in dist_keys -%}
+                {%- if "" not in extras -%}
+        color=grey,style=dashed,fontcolor=grey,
+                {%- endif -%}
+            {%- endif -%}
+            {%- if show_extras_label -%}
         label="{{ extras | reject("eq", "") | join(',') }}",
-        fontcolor=grey
-                {%- endif %}
-            {%- endif %}
+            {%- endif -%}
     ];
-        {%- endfor %}
-
-    {%- else %}
-
-        {%- for require in dist.iter_dependencies() %}
-    "{{ dist.canonical_name }}" -> "{{ canonicalize_name(require.key) }}";
-        {%- endfor %}
-
-    {%- endif %}
+        {%- endif %}
+    {%- endfor %}
 
 {%- endfor %}
 

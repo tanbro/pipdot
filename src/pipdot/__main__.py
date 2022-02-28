@@ -54,12 +54,12 @@ def _get_args():
         help='Only output packages installed in user-site.'
     )
     parser.add_argument(
-        '--include-extras', action=BooleanOptionalAction, default=False,
-        help='List extras dependent packages.'
-    )
-    parser.add_argument(
         '--show-extras-label', action=BooleanOptionalAction, default=False,
         help='Show extras dependencies label.'
+    )
+    parser.add_argument(
+        '--installed-only', action=BooleanOptionalAction, default=True,
+        help='Only output installed packages. Extras packages those are not installed will not be shown.'
     )
     parser.add_argument(
         '--template', '-t',
@@ -87,8 +87,9 @@ def _perform(args):
         'local_distributions': [],
         'site_distributions': [],
         'user_distributions': [],
-        'include_extras': args.include_extras,
+        # 'include_extras': args.include_extras,
         'show_extras_label': args.show_extras_label,
+        'installed_only': args.installed_only,
         'canonicalize_name': canonicalize_name,
     }
 
