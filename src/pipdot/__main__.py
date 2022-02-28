@@ -7,9 +7,7 @@ from argparse import ArgumentParser, FileType
 from os import path
 
 import jinja2
-from pip._internal.utils.misc import (dist_in_site_packages, dist_in_usersite,
-                                      dist_is_editable, dist_is_local,
-                                      get_installed_distributions)
+from pip._internal.metadata import get_environment
 
 from .version import version as __version__
 
@@ -19,16 +17,15 @@ except ImportError:
     from .boolean_optional_action import BooleanOptionalAction
 
 
-__PACKAGE_NAME__ = 'pipdot'
 __PROG__ = 'pipdot'
 
 
 def _get_args():
-    prog = __PROG__
     _, tail = path.split(sys.argv[0])
     root, _ = path.splitext(tail)
-    if root == __name__:
-        prog = '{} -m {}'.format(sys.executable, __PACKAGE_NAME__)
+    prog = '{} -m {}'.format(sys.executable, __package__) \
+        if root == __name__ \
+        else __package__
     parser = ArgumentParser(prog=prog, description=__doc__)
     parser.add_argument(
         '--version', '-V', action='version',
@@ -72,23 +69,22 @@ def _get_args():
              'If not specified, a default template will be used.'
     )
     parser.add_argument(
-        'outfile', type=FileType('w', encoding='utf-8'),
-        help='Write generated graphviz dot file here.',
+        'output', type=FileType('w', encoding='utf-8'),
+        nargs='?', default=sys.stdout,
+        help='Write generated graphviz dot to the file. It will output to "stdout" if not specified.',
     )
     return parser.parse_args()
 
 
 def _perform(args):
-    dist_list = get_installed_distributions(
+    dist_iter = get_environment(args.path).iter_installed_distributions(
         local_only=args.local_only,
         include_editables=args.include_editables,
         editables_only=args.editables_only,
         user_only=args.user_only,
-        paths=args.path
     )
-
     context = {
-        'installed_distributions': dist_list,
+        'installed_distributions': [],
         'editable_distributions': [],
         'local_distributions': [],
         'site_distributions': [],
@@ -97,15 +93,16 @@ def _perform(args):
         'show_extras_label': args.show_extras_label,
     }
 
-    for dist in dist_list:
-        if dist_is_editable(dist):
+    for dist in dist_iter:
+        context['installed_distributions'].append(dist)
+        if dist.editable:
             context['editable_distributions'].append(dist)
-        if dist_is_local(dist):
+        if dist.local:
             context['local_distributions'].append(dist)
-        if dist_in_site_packages(dist):
-            context['site_distributions'].append(dist)
-        if dist_in_usersite(dist):
+        if dist.in_usersite:
             context['user_distributions'].append(dist)
+        if dist.in_site_packages:
+            context['site_distributions'].append(dist)
 
     if args.template:
         template = jinja2.Environment(
@@ -114,12 +111,12 @@ def _perform(args):
         ).get_template(args.template)
     else:
         template = jinja2.Environment(
-            loader=jinja2.PackageLoader(__PACKAGE_NAME__),
+            loader=jinja2.PackageLoader(__package__),
             extensions=['jinja2.ext.do']
         ).get_template('default.dot.j2')
 
     for s in template.generate(context):
-        args.outfile.write(s)
+        args.output.write(s)
 
 
 def main():
