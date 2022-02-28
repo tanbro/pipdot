@@ -126,6 +126,8 @@ digraph {
             {%- if require_canonical_name not in dist_keys -%}
                 {%- if "" not in extras -%}
         color=grey,style=dashed,fontcolor=grey,
+                {%- else -%}}
+        style=dashed,fontcolor=grey,
                 {%- endif -%}
             {%- endif -%}
             {%- if show_extras_label -%}
