@@ -87,7 +87,7 @@ digraph {
             {%- endif -%}
             {%- if not installed_only and canonicalize_name(require.key) not in dist_keys %}
     "{{ canonicalize_name(require.key) }}" [label="{{ require.project_name }}",fontcolor=grey];
-            {%- endif %}
+            {%- endif -%}
         {%- endfor -%}
     {%- endfor -%}
 
