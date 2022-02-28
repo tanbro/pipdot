@@ -18,9 +18,6 @@ except ImportError:
     from .boolean_optional_action import BooleanOptionalAction
 
 
-__PROG__ = 'pipdot'
-
-
 def _get_args():
     _, tail = path.split(sys.argv[0])
     root, _ = path.splitext(tail)
