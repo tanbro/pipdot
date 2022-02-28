@@ -8,12 +8,7 @@ digraph {
 {%- set dist_keys = [] -%}
 
     subgraph {
-        node [
-            shape=box,
-            color="#51bf5b",
-            fillcolor="#91b5c9",
-            style="dotted,filled,setlinewidth(4)"
-        ];
+        node [shape=box,color="#51bf5b",fillcolor="#91b5c9",style="dotted,filled,setlinewidth(4)"];
 {%- for dist in editable_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
@@ -25,12 +20,7 @@ digraph {
     }
 
     subgraph {
-        node [
-            shape=egg,
-            color="#8383cc",
-            fillcolor="#d9e7ee",
-            style="filled,setlinewidth(4)"
-        ];
+        node [shape=egg,color="#8383cc",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
 {%- for dist in local_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
@@ -42,12 +32,7 @@ digraph {
     }
 
     subgraph {
-        node [
-            shape=polygon,
-            color="#61c2c5",
-            fillcolor="#d9e7ee",
-            style="filled,setlinewidth(4)"
-        ];
+        node [shape=polygon,color="#61c2c5",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
 {%- for dist in site_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
@@ -59,12 +44,7 @@ digraph {
     }
 
     subgraph {
-        node [
-            shape=septagon,
-            color="#e27dd6ff",
-            fillcolor="#d9e7ee",
-            style="filled,setlinewidth(4)"
-        ];
+        node [shape=septagon,color="#e27dd6ff",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
 {%- for dist in user_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
@@ -76,12 +56,7 @@ digraph {
     }
 
     subgraph {
-        node [
-            shape=octagon,
-            color="#e27dd6ff",
-            fillcolor="#d9e7ee",
-            style="filled,setlinewidth(4)"
-        ];
+        node [shape=octagon,color="#e27dd6ff",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
 {%- for dist in installed_distributions %}
     {%- if not dist.canonical_name in dist_keys %}
         {%- do dist_keys.append(dist.canonical_name) %}
