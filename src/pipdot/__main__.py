@@ -87,7 +87,6 @@ def _perform(args):
         'local_distributions': [],
         'site_distributions': [],
         'user_distributions': [],
-        # 'include_extras': args.include_extras,
         'show_extras_label': args.show_extras_label,
         'installed_only': args.installed_only,
         'canonicalize_name': canonicalize_name,

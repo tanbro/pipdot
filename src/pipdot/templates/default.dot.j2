@@ -1,7 +1,7 @@
 digraph {
     rankdir = "LR";
 
-    node [color=grey, style=dashed]
+    node [color=grey, style=dotted]
     edge [color="#61c2c5", style="filled,setlinewidth(2)", fontcolor=grey]
 
 {# nodes #}
@@ -103,7 +103,6 @@ digraph {
         {%- endif -%}
     {%- endfor %}
 
-
     {%- for extra in dist.iter_provided_extras() -%}
         {% for require in dist.iter_dependencies((extra, )) %}
             {%- if canonicalize_name(require.key) in extras_mapping -%}
@@ -112,10 +111,7 @@ digraph {
                 {%- do extras_mapping.update({canonicalize_name(require.key): [extra]}) -%}
             {%- endif -%}
             {%- if not installed_only and canonicalize_name(require.key) not in dist_keys %}
-    subgraph {
-        node [fontcolor=grey]
-        "{{ canonicalize_name(require.key) }}" [label="{{ require.project_name }}"];
-    }
+    "{{ canonicalize_name(require.key) }}" [label="{{ require.project_name }}",fontcolor=grey];
             {%- endif %}
         {%- endfor -%}
     {%- endfor -%}
