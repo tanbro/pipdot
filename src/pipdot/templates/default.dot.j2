@@ -2,7 +2,7 @@ digraph {
     rankdir = "LR";
 
     node [color=grey, style=dashed]
-    edge [color="#61c2c5", style="filled,setlinewidth(2)"]
+    edge [color="#61c2c5", style="filled,setlinewidth(2)", fontcolor=grey]
 
 {# nodes #}
 {%- set dist_keys = [] -%}
@@ -124,10 +124,10 @@ digraph {
         {%- if not installed_only or require_canonical_name in dist_keys %}
     "{{ dist.canonical_name }}" -> "{{ require_canonical_name }}" [
             {%- if require_canonical_name not in dist_keys -%}
+        color=grey,style=dotted,
+            {%- else -%}
                 {%- if "" not in extras -%}
-        color=grey,style=dashed,fontcolor=grey,
-                {%- else -%}}
-        style=dashed,fontcolor=grey,
+        style="dashed,setlinewidth(2)",
                 {%- endif -%}
             {%- endif -%}
             {%- if show_extras_label -%}
