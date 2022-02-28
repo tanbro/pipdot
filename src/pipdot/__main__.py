@@ -8,6 +8,7 @@ from os import path
 
 import jinja2
 from pip._internal.metadata import get_environment
+from pip._vendor.packaging.utils import canonicalize_name
 
 from .version import version as __version__
 
@@ -91,6 +92,7 @@ def _perform(args):
         'user_distributions': [],
         'include_extras': args.include_extras,
         'show_extras_label': args.show_extras_label,
+        'canonicalize_name': canonicalize_name,
     }
 
     for dist in dist_iter:

@@ -106,10 +106,10 @@ digraph {
 
         {%- for extra in dist.iter_provided_extras() -%}
             {% for require in dist.iter_dependencies((extra, )) %}
-                {%- if require.key in key_extras_map -%}
-                    {%- do key_extras_map[require.key].append(extra) -%}
+                {%- if canonicalize_name(require.key) in key_extras_map -%}
+                    {%- do key_extras_map[canonicalize_name(require.key)].append(extra) -%}
                 {%- else -%}
-                    {%- do key_extras_map.update({require.key:[extra]}) -%}
+                    {%- do key_extras_map.update({canonicalize_name(require.key): [extra]}) -%}
                 {%- endif -%}
             {%- endfor -%}
         {%- endfor -%}
@@ -132,7 +132,7 @@ digraph {
     {%- else %}
 
         {%- for require in dist.iter_dependencies() %}
-    "{{ dist.canonical_name }}" -> "{{ require.key }}";
+    "{{ dist.canonical_name }}" -> "{{ canonicalize_name(require.key) }}";
         {%- endfor %}
 
     {%- endif %}
