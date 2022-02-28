@@ -15,10 +15,10 @@ digraph {
             style="dotted,filled,setlinewidth(4)"
         ];
 {%- for dist in editable_distributions %}
-    {%- if not dist.key in dist_keys %}
-        {%- do dist_keys.append(dist.key) %}
-        "{{ dist.key }}" [
-            label="{{ dist.project_name }}\n{{ dist.version }}"
+    {%- if not dist.canonical_name in dist_keys %}
+        {%- do dist_keys.append(dist.canonical_name) %}
+        "{{ dist.canonical_name }}" [
+            label="{{ dist.raw_name }}\n{{ dist.version }}"
         ];
     {%- endif %}
 {%- endfor %}
@@ -32,10 +32,10 @@ digraph {
             style="filled,setlinewidth(4)"
         ];
 {%- for dist in local_distributions %}
-    {%- if not dist.key in dist_keys %}
-        {%- do dist_keys.append(dist.key) %}
-        "{{ dist.key }}" [
-            label="{{ dist.project_name }}\n{{ dist.version }}"
+    {%- if not dist.canonical_name in dist_keys %}
+        {%- do dist_keys.append(dist.canonical_name) %}
+        "{{ dist.canonical_name }}" [
+            label="{{ dist.raw_name }}\n{{ dist.version }}"
         ];
     {%- endif %}
 {%- endfor %}
@@ -49,10 +49,10 @@ digraph {
             style="filled,setlinewidth(4)"
         ];
 {%- for dist in site_distributions %}
-    {%- if not dist.key in dist_keys %}
-        {%- do dist_keys.append(dist.key) %}
-        "{{ dist.key }}" [
-            label="{{ dist.project_name }}\n{{ dist.version }}"
+    {%- if not dist.canonical_name in dist_keys %}
+        {%- do dist_keys.append(dist.canonical_name) %}
+        "{{ dist.canonical_name }}" [
+            label="{{ dist.raw_name }}\n{{ dist.version }}"
         ];
     {%- endif %}
 {%- endfor %}
@@ -66,10 +66,10 @@ digraph {
             style="filled,setlinewidth(4)"
         ];
 {%- for dist in user_distributions %}
-    {%- if not dist.key in dist_keys %}
-        {%- do dist_keys.append(dist.key) %}
-        "{{ dist.key }}" [
-            label="{{ dist.project_name }}\n{{ dist.version }}"
+    {%- if not dist.canonical_name in dist_keys %}
+        {%- do dist_keys.append(dist.canonical_name) %}
+        "{{ dist.canonical_name }}" [
+            label="{{ dist.raw_name }}\n{{ dist.version }}"
         ];
     {%- endif %}
 {%- endfor %}
@@ -83,10 +83,10 @@ digraph {
             style="filled,setlinewidth(4)"
         ];
 {%- for dist in installed_distributions %}
-    {%- if not dist.key in dist_keys %}
-        {%- do dist_keys.append(dist.key) %}
-    "{{ dist.key }}" [
-        label="{{ dist.project_name }}\n{{ dist.version }}"
+    {%- if not dist.canonical_name in dist_keys %}
+        {%- do dist_keys.append(dist.canonical_name) %}
+    "{{ dist.canonical_name }}" [
+        label="{{ dist.raw_name }}\n{{ dist.version }}"
     ];
     {%- endif %}
 {%- endfor %}
@@ -98,14 +98,14 @@ digraph {
     {%- if include_extras -%}
         {%- set key_extras_map={} -%}
 
-        {%- for require in dist.requires() -%}
+        {%- for require in dist.iter_dependencies() -%}
             {%- if require.key not in key_extras_map -%}
                 {%- do key_extras_map.update({require.key:[""]}) -%}
             {%- endif -%}
         {%- endfor %}
 
-        {%- for extra in dist.extras -%}
-            {% for require in dist.requires((extra, )) %}
+        {%- for extra in dist.iter_provided_extras() -%}
+            {% for require in dist.iter_dependencies((extra, )) %}
                 {%- if require.key in key_extras_map -%}
                     {%- do key_extras_map[require.key].append(extra) -%}
                 {%- else -%}
@@ -115,7 +115,7 @@ digraph {
         {%- endfor -%}
 
         {%- for dep_key, extras in key_extras_map.items() %}
-    "{{ dist.key }}" -> "{{ dep_key }}" [
+    "{{ dist.canonical_name }}" -> "{{ dep_key }}" [
             {%- if "" not in extras %}
         color=grey,
             {%- endif %}
@@ -131,8 +131,8 @@ digraph {
 
     {%- else %}
 
-        {%- for require in dist.requires() %}
-    "{{ dist.key }}" -> "{{ require.key }}";
+        {%- for require in dist.iter_dependencies() %}
+    "{{ dist.canonical_name }}" -> "{{ require.key }}";
         {%- endfor %}
 
     {%- endif %}
