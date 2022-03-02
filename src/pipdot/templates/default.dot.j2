@@ -88,9 +88,9 @@ digraph {
         color=grey,style=dotted,
             {%- elif "" not in extras -%}
         style="dashed,setlinewidth(2)",
-                {%- if show_extras_label -%}
+            {%- endif -%}
+            {%- if show_extras_label and "" not in extras -%}
         label="{{ extras | reject("eq", "") | join(',') }}",
-                {%- endif -%}
             {%- endif -%}
     ];
         {%- endif %}
