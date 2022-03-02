@@ -11,7 +11,7 @@ Generate a [GraphViz][] `dot` file representing installed [PyPI][] distributions
 
 ## Installation
 
-```sh
+```bash
 pip install pipdot
 ```
 
@@ -21,13 +21,13 @@ A [pip][] `>=22.0` is needed.
 
 Generate a [GraphViz][] `dot` file:
 
-```sh
+```bash
 pipdot --show-extras-label 1.dot
 ```
 
-Convert it to a `svg` (or other formats) image:
+Convert the `dot` file to a `svg` (or other formats) image:
 
-```sh
+```bash
 dot -T svg -O 1.dot
 ```
 
@@ -35,13 +35,11 @@ we'll get something like:
 
 ![assets/1.dot.svg](assets/1.dot.svg)
 
-Run
+For more help messages, execute:
 
-```sh
+```bash
 python -m pipdot --help
 ```
-
-for help messages
 
 [PyPI]: https://pypi.org/
 [pip]: https://pip.pypa.io/
