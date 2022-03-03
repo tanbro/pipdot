@@ -6,6 +6,7 @@ import importlib.metadata as importlib_metadata
 import site
 import sys
 from argparse import ArgumentParser, FileType
+from functools import lru_cache, partial
 from os import path
 from pathlib import Path
 from typing import Iterable, Mapping, Optional, Union
@@ -67,6 +68,7 @@ def _get_args():
     return parser.parse_args()
 
 
+@lru_cache
 def in_site(distribution: importlib_metadata.Distribution) -> bool:
     location = Path(distribution.locate_file(''))
     for dir in site.getsitepackages():
@@ -76,12 +78,20 @@ def in_site(distribution: importlib_metadata.Distribution) -> bool:
     return False
 
 
+@lru_cache
 def in_usersite(distribution: importlib_metadata.Distribution) -> bool:
     location = Path(distribution.locate_file(''))
     pth = Path(site.getusersitepackages())
     if pth == location:
         return True
     return False
+
+
+def _installed(
+    dists: Iterable[importlib_metadata.Distribution],
+    name: str
+) -> bool:
+    return _find_distribution(dists, name) is not None
 
 
 def _find_distribution(
@@ -160,8 +170,8 @@ def _perform(args):
         'in_site': in_site,
         'in_usersite': in_usersite,
         'canonicalize_name': canonicalize_name,
-        'requires_extras': lambda x: _get_requires_extras(dists, x),
-        'installed': lambda x: _find_distribution(dists, str(x)) is not None,
+        'requires_extras': lru_cache(partial(_get_requires_extras, dists)),
+        'installed': lru_cache(partial(_installed, dists)),
         'Requirement': Requirement,
     }
 
