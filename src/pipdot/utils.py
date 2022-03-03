@@ -1,0 +1,15 @@
+import sys
+
+
+class AddSysPath():
+    def __init__(self, path):
+        self._path = path
+
+    def __enter__(self):
+        sys.path.insert(0, self._path)
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        try:
+            del sys.path[0]
+        except ValueError:
+            pass

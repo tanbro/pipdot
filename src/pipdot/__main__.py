@@ -2,20 +2,22 @@
 Generate a GraphViz dot file representing installed PyPI distributions
 """
 
+import site
 import sys
+from pathlib import Path
 from argparse import ArgumentParser, FileType
 from os import path
-
-import jinja2
-from pip._internal.metadata import get_environment
-from pip._vendor.packaging.utils import canonicalize_name
-
-from .version import version as __version__
+from pathlib import Path
+from typing import Iterable, Mapping, Optional, Union
+import importlib.metadata as importlib_metadata
 
 try:
     from argparse import BooleanOptionalAction  # type: ignore
 except ImportError:
     from .boolean_optional_action import BooleanOptionalAction
+
+from .utils import AddSysPath
+from .version import version as __version__
 
 
 def _get_args():
@@ -45,10 +47,10 @@ def _get_args():
         '--include-editables', action=BooleanOptionalAction, default=True,
         help='List editable projects.'
     )
-    parser.add_argument(
-        '--editables-only', action=BooleanOptionalAction, default=False,
-        help='List editable projects only.'
-    )
+    # parser.add_argument(
+    #     '--editables-only', action=BooleanOptionalAction, default=False,
+    #     help='List editable projects only.'
+    # )
     parser.add_argument(
         '--user-only', action=BooleanOptionalAction, default=False,
         help='Only output packages installed in user-site.'
@@ -74,34 +76,103 @@ def _get_args():
     return parser.parse_args()
 
 
+def in_site(distribution: importlib_metadata.Distribution) -> bool:
+    location = Path(distribution.locate_file(''))
+    for dir in site.getsitepackages():
+        pth = Path(dir)
+        if pth == location:
+            return True
+    return False
+
+
+def in_usersite(distribution: importlib_metadata.Distribution) -> bool:
+    location = Path(distribution.locate_file(''))
+    pth = Path(site.getusersitepackages())
+    if pth == location:
+        return True
+    return False
+
+
+def _find_distribution(
+    dists: Iterable[importlib_metadata.Distribution],
+    name: str
+) -> Optional[importlib_metadata.Distribution]:
+    import jinja2
+    from packaging.requirements import Requirement
+    from packaging.utils import canonicalize_name
+
+    for d in dists:
+        if canonicalize_name(d.metadata['Name']) == canonicalize_name(name):
+            return d
+
+
+def _get_requires_extras(
+    dists: Iterable[importlib_metadata.Distribution],
+    dist_or_name: Union[importlib_metadata.Distribution, str],
+) -> Mapping[str, str]:
+
+    import jinja2
+    from packaging.requirements import Requirement
+    from packaging.utils import canonicalize_name
+
+    requires_extras = dict()
+    if isinstance(dist_or_name, str):
+        dist = _find_distribution(dists, dist_or_name)
+    else:
+        dist = dist_or_name
+    if dist is None:
+        return requires_extras
+
+    extras = dist.metadata.get_all('Provides-Extra')
+
+    if dist.requires:
+        for s in dist.requires:
+            require = Requirement(s)
+            rc_name = canonicalize_name(require.name)
+            extra_matched = False
+            if extras:
+                for extra in extras:
+                    if require.marker:
+                        if require.marker.evaluate(environment={'extra': extra}):
+                            extra_matched = True
+                            if rc_name in requires_extras:
+                                requires_extras[rc_name].append(extra)
+                            else:
+                                requires_extras[rc_name] = [extra]
+            if not extra_matched:
+                if rc_name in requires_extras:
+                    requires_extras[rc_name].append('')
+                else:
+                    requires_extras[rc_name] = ['']
+
+    for k in requires_extras:
+        requires_extras[k] = list(set(requires_extras[k]))
+
+    return requires_extras
+
+
 def _perform(args):
-    dist_iter = get_environment(args.path).iter_installed_distributions(
-        local_only=args.local_only,
-        include_editables=args.include_editables,
-        editables_only=args.editables_only,
-        user_only=args.user_only,
-    )
+
+    import jinja2
+    from packaging.requirements import Requirement
+    from packaging.utils import canonicalize_name
+
+    kdargs = dict()
+    if args.path:
+        kdargs.update(path=args.path)
+    dists = list(importlib_metadata.distributions(**kdargs))
+
     context = {
-        'installed_distributions': [],
-        'editable_distributions': [],
-        'local_distributions': [],
-        'site_distributions': [],
-        'user_distributions': [],
+        'distributions': dists,
         'show_extras_label': args.show_extras_label,
         'installed_only': args.installed_only,
+        'in_site': in_site,
+        'in_usersite': in_usersite,
         'canonicalize_name': canonicalize_name,
+        'requires_extras': lambda x: _get_requires_extras(dists, x),
+        'installed': lambda x: _find_distribution(dists, str(x)) is not None,
+        'Requirement': Requirement,
     }
-
-    for dist in dist_iter:
-        context['installed_distributions'].append(dist)
-        if dist.editable:
-            context['editable_distributions'].append(dist)
-        if dist.local:
-            context['local_distributions'].append(dist)
-        if dist.in_usersite:
-            context['user_distributions'].append(dist)
-        if dist.in_site_packages:
-            context['site_distributions'].append(dist)
 
     if args.template:
         template = jinja2.Environment(
@@ -120,7 +191,14 @@ def _perform(args):
 
 def main():
     args = _get_args()
-    return _perform(args)
+
+    vendor_dir = Path(
+        importlib_metadata.distribution(__package__)
+        .locate_file('')
+    ).joinpath(__package__, '_vendor')
+
+    with AddSysPath(str(vendor_dir)):
+        return _perform(args)
 
 
 if __name__ == '__main__':
