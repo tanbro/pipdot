@@ -2,7 +2,8 @@
 Generate a GraphViz dot file representing installed PyPI distributions
 """
 
-import importlib.metadata as importlib_metadata
+import importlib.metadata
+import importlib.resources
 import site
 import sys
 from argparse import ArgumentParser, FileType
@@ -69,17 +70,17 @@ def _get_args():
 
 
 @lru_cache
-def in_site(distribution: importlib_metadata.Distribution) -> bool:
+def in_site(distribution: importlib.metadata.Distribution) -> bool:
     location = Path(distribution.locate_file(''))
-    for dir in site.getsitepackages():
-        pth = Path(dir)
+    for s in site.getsitepackages():
+        pth = Path(s)
         if pth == location:
             return True
     return False
 
 
 @lru_cache
-def in_usersite(distribution: importlib_metadata.Distribution) -> bool:
+def in_usersite(distribution: importlib.metadata.Distribution) -> bool:
     location = Path(distribution.locate_file(''))
     pth = Path(site.getusersitepackages())
     if pth == location:
@@ -88,16 +89,16 @@ def in_usersite(distribution: importlib_metadata.Distribution) -> bool:
 
 
 def _installed(
-    dists: Iterable[importlib_metadata.Distribution],
+    dists: Iterable[importlib.metadata.Distribution],
     name: str
 ) -> bool:
     return _find_distribution(dists, name) is not None
 
 
 def _find_distribution(
-    dists: Iterable[importlib_metadata.Distribution],
+    dists: Iterable[importlib.metadata.Distribution],
     name: str
-) -> Optional[importlib_metadata.Distribution]:
+) -> Optional[importlib.metadata.Distribution]:
 
     import jinja2  # type: ignore
     from packaging.requirements import Requirement  # type: ignore
@@ -109,11 +110,10 @@ def _find_distribution(
 
 
 def _get_requires_extras(
-    dists: Iterable[importlib_metadata.Distribution],
-    dist_or_name: Union[importlib_metadata.Distribution, str],
+    dists: Iterable[importlib.metadata.Distribution],
+    dist_or_name: Union[importlib.metadata.Distribution, str],
 ) -> Mapping[str, str]:
 
-    import jinja2  # type: ignore
     from packaging.requirements import Requirement  # type: ignore
     from packaging.utils import canonicalize_name  # type: ignore
 
@@ -162,7 +162,7 @@ def _perform(args):
     kdargs = dict()
     if args.path:
         kdargs.update(path=args.path)
-    dists = list(importlib_metadata.distributions(**kdargs))
+    dists = list(importlib.metadata.distributions(**kdargs))
 
     context = {
         'distributions': dists,
@@ -194,13 +194,9 @@ def _perform(args):
 def main():
     args = _get_args()
 
-    vendor_dir = Path(
-        importlib_metadata.distribution(__package__)
-        .locate_file('')
-    ).joinpath(__package__, '_vendor')
-
-    with AddSysPath(vendor_dir):
-        return _perform(args)
+    with importlib.resources.path(__package__, '_vendor') as vendor_dir:
+        with AddSysPath(vendor_dir):
+            return _perform(args)
 
 
 if __name__ == '__main__':
