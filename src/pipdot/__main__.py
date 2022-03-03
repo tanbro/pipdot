@@ -197,7 +197,7 @@ def main():
         .locate_file('')
     ).joinpath(__package__, '_vendor')
 
-    with AddSysPath(str(vendor_dir)):
+    with AddSysPath(vendor_dir):
         return _perform(args)
 
 
