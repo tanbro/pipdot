@@ -2,14 +2,13 @@
 Generate a GraphViz dot file representing installed PyPI distributions
 """
 
+import importlib.metadata as importlib_metadata
 import site
 import sys
-from pathlib import Path
 from argparse import ArgumentParser, FileType
 from os import path
 from pathlib import Path
 from typing import Iterable, Mapping, Optional, Union
-import importlib.metadata as importlib_metadata
 
 try:
     from argparse import BooleanOptionalAction  # type: ignore
@@ -43,14 +42,6 @@ def _get_args():
         help='If in a virtual-env that has global access, '
              'do not list globally-installed packages.'
     )
-    parser.add_argument(
-        '--include-editables', action=BooleanOptionalAction, default=True,
-        help='List editable projects.'
-    )
-    # parser.add_argument(
-    #     '--editables-only', action=BooleanOptionalAction, default=False,
-    #     help='List editable projects only.'
-    # )
     parser.add_argument(
         '--user-only', action=BooleanOptionalAction, default=False,
         help='Only output packages installed in user-site.'
@@ -97,9 +88,10 @@ def _find_distribution(
     dists: Iterable[importlib_metadata.Distribution],
     name: str
 ) -> Optional[importlib_metadata.Distribution]:
-    import jinja2
-    from packaging.requirements import Requirement
-    from packaging.utils import canonicalize_name
+
+    import jinja2  # type: ignore
+    from packaging.requirements import Requirement  # type: ignore
+    from packaging.utils import canonicalize_name  # type: ignore
 
     for d in dists:
         if canonicalize_name(d.metadata['Name']) == canonicalize_name(name):
@@ -111,9 +103,9 @@ def _get_requires_extras(
     dist_or_name: Union[importlib_metadata.Distribution, str],
 ) -> Mapping[str, str]:
 
-    import jinja2
-    from packaging.requirements import Requirement
-    from packaging.utils import canonicalize_name
+    import jinja2  # type: ignore
+    from packaging.requirements import Requirement  # type: ignore
+    from packaging.utils import canonicalize_name  # type: ignore
 
     requires_extras = dict()
     if isinstance(dist_or_name, str):
@@ -153,9 +145,9 @@ def _get_requires_extras(
 
 def _perform(args):
 
-    import jinja2
-    from packaging.requirements import Requirement
-    from packaging.utils import canonicalize_name
+    import jinja2  # type: ignore
+    from packaging.requirements import Requirement  # type: ignore
+    from packaging.utils import canonicalize_name  # type: ignore
 
     kdargs = dict()
     if args.path:
@@ -164,8 +156,7 @@ def _perform(args):
 
     context = {
         'distributions': dists,
-        'show_extras_label': args.show_extras_label,
-        'installed_only': args.installed_only,
+        'options': args,
         'in_site': in_site,
         'in_usersite': in_usersite,
         'canonicalize_name': canonicalize_name,
@@ -187,6 +178,7 @@ def _perform(args):
 
     for s in template.generate(context):
         args.output.write(s)
+    print('', file=args.output)
 
 
 def main():
