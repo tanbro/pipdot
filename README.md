@@ -15,27 +15,27 @@ Generate a [GraphViz][] `dot` file representing installed [PyPI][] distributions
 pip install pipdot
 ```
 
+It's a zero-dependency package.
+
 ## Usage
 
-A [pip][] `>=22.0` is needed.
-
-Generate a [GraphViz][] `dot` file:
+To generate a [GraphViz][] `dot` file for distributions of current Python environment, we shall run:
 
 ```bash
 pipdot --extras-label 1.dot
 ```
 
-Convert the `dot` file to a `svg` (or other formats) image:
+Then convert it to a `svg` (or other formats) image:
 
 ```bash
 dot -T svg -O 1.dot
 ```
 
-we'll get something like:
+We'll get something like:
 
 ![assets/1.dot.svg](assets/1.dot.svg)
 
-For more help messages, execute:
+For help messages, execute:
 
 ```bash
 python -m pipdot --help
