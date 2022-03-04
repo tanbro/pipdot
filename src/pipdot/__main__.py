@@ -125,15 +125,12 @@ def _get_requires_extras(dists, dist_or_name):
                         rc_name: requires_extras[rc_name].union(matched_extras)
                     })
                 else:
-                    requires_extras[rc_name] = set([''])
+                    requires_extras[rc_name] = matched_extras
             else:
                 if rc_name in requires_extras:
                     requires_extras[rc_name].add('')
                 else:
                     requires_extras[rc_name] = set([''])
-
-    for k in requires_extras:
-        requires_extras[k] = list(set(requires_extras[k]))
 
     return requires_extras
 
