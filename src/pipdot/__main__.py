@@ -140,7 +140,6 @@ def perform(args):
     import jinja2  # type: ignore
     from packaging.requirements import Requirement  # type: ignore
     from packaging.utils import canonicalize_name  # type: ignore
-    from packaging.version import parse as parse_version  # type: ignore
 
     kdargs = dict()
     if args.path:
