@@ -96,43 +96,45 @@ def _get_requires_extras(dists, dist_or_name):
     from packaging.requirements import Requirement  # type: ignore
     from packaging.utils import canonicalize_name  # type: ignore
 
-    requires_extras = dict()
+    result = dict()
+
     if isinstance(dist_or_name, str):
         dist = _find_distribution(dists, dist_or_name)
     else:
         dist = dist_or_name
     if dist is None:
-        return requires_extras
+        return result
+    if not dist.requires:
+        return result
 
     extras = dist.metadata.get_all('Provides-Extra')
 
-    if dist.requires:
-        for require_exp in dist.requires:
-            require = Requirement(require_exp)
-            rc_name = canonicalize_name(require.name)
-            matched_extras = (
-                set(
-                    m for m in extras
-                    if require.marker
-                    and require.marker.evaluate(environment={'extra': m})
-                )
-                if extras
-                else set()
+    for line in dist.requires:
+        require = Requirement(line)
+        rc_name = canonicalize_name(require.name)
+        matched_extras = (
+            set(
+                m for m in extras
+                if require.marker
+                and require.marker.evaluate(environment={'extra': m})
             )
-            if matched_extras:
-                if rc_name in requires_extras:
-                    requires_extras.update({
-                        rc_name: requires_extras[rc_name].union(matched_extras)
-                    })
-                else:
-                    requires_extras[rc_name] = matched_extras
+            if extras
+            else set()
+        )
+        if matched_extras:
+            if rc_name in result:
+                result.update({
+                    rc_name: result[rc_name].union(matched_extras)
+                })
             else:
-                if rc_name in requires_extras:
-                    requires_extras[rc_name].add('')
-                else:
-                    requires_extras[rc_name] = set([''])
+                result[rc_name] = matched_extras
+        else:
+            if rc_name in result:
+                result[rc_name].add('')
+            else:
+                result[rc_name] = set([''])
 
-    return requires_extras
+    return result
 
 
 def perform(args):
