@@ -84,7 +84,6 @@ def _installed(dists, name):
 
 
 def _find_distribution(dists, name):
-
     from packaging.utils import canonicalize_name  # type: ignore
 
     for d in dists:
@@ -93,7 +92,6 @@ def _find_distribution(dists, name):
 
 
 def _get_requires_extras(dists, dist_or_name):
-
     from packaging.requirements import Requirement  # type: ignore
     from packaging.utils import canonicalize_name  # type: ignore
 
@@ -136,7 +134,6 @@ def _get_requires_extras(dists, dist_or_name):
 
 
 def perform(args):
-
     import importlib_metadata  # type: ignore
     import jinja2  # type: ignore
     from packaging.requirements import Requirement  # type: ignore

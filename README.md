@@ -22,7 +22,7 @@ A [pip][] `>=22.0` is needed.
 Generate a [GraphViz][] `dot` file:
 
 ```bash
-pipdot --show-extras-label 1.dot
+pipdot --extras-label 1.dot
 ```
 
 Convert the `dot` file to a `svg` (or other formats) image:
