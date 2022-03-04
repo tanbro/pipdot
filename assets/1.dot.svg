@@ -442,7 +442,7 @@
 <title>ipython&#45;&gt;ipykernel</title>
 <path fill="none" stroke="grey" stroke-dasharray="1,5" d="M1207.87,-719.32C1210.02,-749.43 1218.76,-807.28 1253.69,-838 1276.01,-857.62 1309.26,-863.56 1335.93,-864.76"/>
 <polygon fill="grey" stroke="grey" points="1336.08,-868.27 1346.16,-865.01 1336.25,-861.27 1336.08,-868.27"/>
-<text text-anchor="middle" x="1281.19" y="-865.8" font-family="Times,serif" font-size="14.00" fill="grey">kernel, all</text>
+<text text-anchor="middle" x="1281.19" y="-865.8" font-family="Times,serif" font-size="14.00" fill="grey">all, kernel</text>
 </g>
 <!-- pep517 -->
 <g id="node13" class="node">

@@ -94,10 +94,8 @@ digraph {
     "jupyter-client" -> "pyzmq" [];
     "jupyter-client" -> "tornado" [];
     "jupyter-client" -> "traitlets" [];
-    "jupyter-client" -> "ipykernel" [
-            label="test",color=grey,style=dotted,];
-    "jupyter-client" -> "ipython" [
-            label="test",color=grey,style=dotted,];
+    "jupyter-client" -> "ipykernel" [label="test",color=grey,style=dotted,];
+    "jupyter-client" -> "ipython" [label="test",color=grey,style=dotted,];
     "jupyter-client" -> "jedi" [];
     "bleach" -> "packaging" [];
     "bleach" -> "six" [];
@@ -114,8 +112,7 @@ digraph {
     "ipython" -> "traitlets" [];
     "ipython" -> "pexpect" [];
     "ipython" -> "colorama" [];
-    "ipython" -> "ipykernel" [
-            label="kernel, all",color=grey,style=dotted,];
+    "ipython" -> "ipykernel" [label="all, kernel",color=grey,style=dotted,];
     "pep517" -> "toml" [];
     "pep517" -> "tomli" [];
     "pep517" -> "importlib-metadata" [];
@@ -137,42 +134,31 @@ digraph {
     "twine" -> "rfc3986" [];
     "twine" -> "colorama" [];
     "tqdm" -> "colorama" [];
-    "tqdm" -> "twine" [
-            label="dev",color=grey,style=dotted,];
-    "tqdm" -> "wheel" [
-            label="dev",color=grey,style=dotted,];
-    "tqdm" -> "requests" [
-            label="telegram",color=grey,style=dotted,];
+    "tqdm" -> "twine" [label="dev",color=grey,style=dotted,];
+    "tqdm" -> "wheel" [label="dev",color=grey,style=dotted,];
+    "tqdm" -> "requests" [label="telegram",color=grey,style=dotted,];
     "pyzmq" -> "cffi" [];
     "readme-renderer" -> "bleach" [];
     "readme-renderer" -> "docutils" [];
     "readme-renderer" -> "pygments" [];
     "cryptography" -> "cffi" [];
-    "cryptography" -> "twine" [
-            label="docstest",color=grey,style=dotted,];
+    "cryptography" -> "twine" [label="docstest",color=grey,style=dotted,];
     "stack-data" -> "executing" [];
     "stack-data" -> "asttokens" [];
     "stack-data" -> "pure-eval" [];
-    "stack-data" -> "pygments" [
-            label="tests",color=grey,style=dotted,];
+    "stack-data" -> "pygments" [label="tests",color=grey,style=dotted,];
     "secretstorage" -> "cryptography" [];
     "secretstorage" -> "jeepney" [];
-    "urllib3" -> "cryptography" [
-            label="secure",color=grey,style=dotted,];
-    "urllib3" -> "idna" [
-            label="secure",color=grey,style=dotted,];
-    "urllib3" -> "certifi" [
-            label="secure",color=grey,style=dotted,];
+    "urllib3" -> "cryptography" [label="secure",color=grey,style=dotted,];
+    "urllib3" -> "idna" [label="secure",color=grey,style=dotted,];
+    "urllib3" -> "certifi" [label="secure",color=grey,style=dotted,];
     "jupyter-core" -> "traitlets" [];
-    "rfc3986" -> "idna" [
-            label="idna2008",color=grey,style=dotted,];
+    "rfc3986" -> "idna" [label="idna2008",color=grey,style=dotted,];
     "cffi" -> "pycparser" [];
     "prompt-toolkit" -> "wcwidth" [];
     "importlib-metadata" -> "zipp" [];
-    "importlib-metadata" -> "ipython" [
-            label="perf",color=grey,style=dotted,];
-    "importlib-metadata" -> "packaging" [
-            label="testing",color=grey,style=dotted,];
+    "importlib-metadata" -> "ipython" [label="perf",color=grey,style=dotted,];
+    "importlib-metadata" -> "packaging" [label="testing",color=grey,style=dotted,];
     "requests-toolbelt" -> "requests" [];
     "autopep8" -> "pycodestyle" [];
     "autopep8" -> "toml" [];
@@ -181,23 +167,15 @@ digraph {
     "build" -> "tomli" [];
     "build" -> "colorama" [];
     "build" -> "importlib-metadata" [];
-    "build" -> "setuptools" [
-            label="test",color=grey,style=dotted,];
-    "build" -> "toml" [
-            label="test",color=grey,style=dotted,];
-    "build" -> "wheel" [
-            label="test",color=grey,style=dotted,];
-    "setuptools" -> "wheel" [
-            label="testing-integration, testing",color=grey,style=dotted,];
-    "setuptools" -> "pip" [
-            label="testing",color=grey,style=dotted,];
-    "setuptools" -> "build" [
-            label="testing-integration, testing",color=grey,style=dotted,];
-    "setuptools" -> "tomli" [
-            label="testing-integration",color=grey,style=dotted,];
+    "build" -> "setuptools" [label="test",color=grey,style=dotted,];
+    "build" -> "toml" [label="test",color=grey,style=dotted,];
+    "build" -> "wheel" [label="test",color=grey,style=dotted,];
+    "setuptools" -> "wheel" [label="testing-integration, testing",color=grey,style=dotted,];
+    "setuptools" -> "pip" [label="testing",color=grey,style=dotted,];
+    "setuptools" -> "build" [label="testing-integration, testing",color=grey,style=dotted,];
+    "setuptools" -> "tomli" [label="testing-integration",color=grey,style=dotted,];
     "jedi" -> "parso" [];
-    "jedi" -> "colorama" [
-            label="testing",color=grey,style=dotted,];
+    "jedi" -> "colorama" [label="testing",color=grey,style=dotted,];
     "packaging" -> "pyparsing" [];
     "pexpect" -> "ptyprocess" [];
     "ipykernel" -> "debugpy" [];
