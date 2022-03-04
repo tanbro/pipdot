@@ -2,26 +2,24 @@
 Generate a GraphViz dot file representing installed PyPI distributions
 """
 
-import importlib.metadata
-import importlib.resources
 import site
 import sys
 from argparse import ArgumentParser, FileType
 from functools import lru_cache, partial
 from os import path
 from pathlib import Path
-from typing import Iterable, Mapping, Optional, Union
+from platform import python_version
 
 try:
     from argparse import BooleanOptionalAction  # type: ignore
 except ImportError:
-    from .boolean_optional_action import BooleanOptionalAction
+    from .backports.argparse import BooleanOptionalAction
 
 from .utils import AddSysPath
 from .version import version as __version__
 
 
-def _get_args():
+def get_args():
     _, tail = path.split(sys.argv[0])
     root, _ = path.splitext(tail)
     prog = '{} -m {}'.format(sys.executable, __package__) \
@@ -49,7 +47,7 @@ def _get_args():
         help='Only output packages installed in user-site.'
     )
     parser.add_argument(
-        '--show-extras-label', action=BooleanOptionalAction, default=False,
+        '--extras-label', action=BooleanOptionalAction, default=False,
         help='Show extras dependencies label.'
     )
     parser.add_argument(
@@ -69,39 +67,24 @@ def _get_args():
     return parser.parse_args()
 
 
-@lru_cache
-def in_site(distribution: importlib.metadata.Distribution) -> bool:
-    location = Path(distribution.locate_file(''))
-    for s in site.getsitepackages():
-        pth = Path(s)
-        if pth == location:
-            return True
-    return False
+@lru_cache(maxsize=None)
+def in_site(dist):
+    loc_path = Path(dist.locate_file(''))  # type: ignore
+    return any(loc_path == Path(x) for x in site.getsitepackages())
 
 
-@lru_cache
-def in_usersite(distribution: importlib.metadata.Distribution) -> bool:
-    location = Path(distribution.locate_file(''))
-    pth = Path(site.getusersitepackages())
-    if pth == location:
-        return True
-    return False
+@lru_cache(maxsize=None)
+def in_usersite(dist):
+    loc_path = Path(dist.locate_file(''))  # type: ignore
+    return loc_path == Path(site.getusersitepackages())
 
 
-def _installed(
-    dists: Iterable[importlib.metadata.Distribution],
-    name: str
-) -> bool:
+def _installed(dists, name):
     return _find_distribution(dists, name) is not None
 
 
-def _find_distribution(
-    dists: Iterable[importlib.metadata.Distribution],
-    name: str
-) -> Optional[importlib.metadata.Distribution]:
+def _find_distribution(dists, name):
 
-    import jinja2  # type: ignore
-    from packaging.requirements import Requirement  # type: ignore
     from packaging.utils import canonicalize_name  # type: ignore
 
     for d in dists:
@@ -109,10 +92,7 @@ def _find_distribution(
             return d
 
 
-def _get_requires_extras(
-    dists: Iterable[importlib.metadata.Distribution],
-    dist_or_name: Union[importlib.metadata.Distribution, str],
-) -> Mapping[str, str]:
+def _get_requires_extras(dists, dist_or_name):
 
     from packaging.requirements import Requirement  # type: ignore
     from packaging.utils import canonicalize_name  # type: ignore
@@ -128,24 +108,29 @@ def _get_requires_extras(
     extras = dist.metadata.get_all('Provides-Extra')
 
     if dist.requires:
-        for s in dist.requires:
-            require = Requirement(s)
+        for require_exp in dist.requires:
+            require = Requirement(require_exp)
             rc_name = canonicalize_name(require.name)
-            extra_matched = False
-            if extras:
-                for extra in extras:
-                    if require.marker:
-                        if require.marker.evaluate(environment={'extra': extra}):
-                            extra_matched = True
-                            if rc_name in requires_extras:
-                                requires_extras[rc_name].append(extra)
-                            else:
-                                requires_extras[rc_name] = [extra]
-            if not extra_matched:
+            matched_extras = (
+                set(
+                    m for m in extras
+                    if require.marker and require.marker.evaluate(environment={'extra': m})
+                )
+                if extras
+                else set()
+            )
+            if matched_extras:
                 if rc_name in requires_extras:
-                    requires_extras[rc_name].append('')
+                    requires_extras.update({
+                        rc_name: requires_extras[rc_name].union(matched_extras)
+                    })
                 else:
-                    requires_extras[rc_name] = ['']
+                    requires_extras[rc_name] = set([''])
+            else:
+                if rc_name in requires_extras:
+                    requires_extras[rc_name].add('')
+                else:
+                    requires_extras[rc_name] = set([''])
 
     for k in requires_extras:
         requires_extras[k] = list(set(requires_extras[k]))
@@ -153,16 +138,24 @@ def _get_requires_extras(
     return requires_extras
 
 
-def _perform(args):
+def perform(args):
 
+    import importlib_metadata  # type: ignore
     import jinja2  # type: ignore
     from packaging.requirements import Requirement  # type: ignore
     from packaging.utils import canonicalize_name  # type: ignore
+    from packaging.version import parse as parse_version  # type: ignore
 
     kdargs = dict()
     if args.path:
         kdargs.update(path=args.path)
-    dists = list(importlib.metadata.distributions(**kdargs))
+    dists = list(importlib_metadata.distributions(**kdargs))
+
+    requires_extras = partial(_get_requires_extras, dists)
+    installed = partial(_installed, dists)
+    if parse_version(python_version()) >= parse_version('3.8'):
+        requires_extras = lru_cache(requires_extras)
+        installed = lru_cache(installed)
 
     context = {
         'distributions': dists,
@@ -170,8 +163,8 @@ def _perform(args):
         'in_site': in_site,
         'in_usersite': in_usersite,
         'canonicalize_name': canonicalize_name,
-        'requires_extras': lru_cache(partial(_get_requires_extras, dists)),
-        'installed': lru_cache(partial(_installed, dists)),
+        'requires_extras': requires_extras,
+        'installed': installed,
         'Requirement': Requirement,
     }
 
@@ -192,11 +185,10 @@ def _perform(args):
 
 
 def main():
-    args = _get_args()
-
-    with importlib.resources.path(__package__, '_vendor') as vendor_dir:
-        with AddSysPath(vendor_dir):
-            return _perform(args)
+    args = get_args()
+    vendor_dir = Path(__file__).parent.joinpath('_vendor')
+    with AddSysPath(vendor_dir):
+        return perform(args)
 
 
 if __name__ == '__main__':
