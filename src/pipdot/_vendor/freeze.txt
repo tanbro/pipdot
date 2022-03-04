@@ -1,0 +1,7 @@
+importlib-metadata==4.11.2
+Jinja2==3.0.3
+MarkupSafe==2.1.0
+packaging==21.3
+pyparsing==3.0.7
+typing_extensions==4.1.1
+zipp==3.7.0
