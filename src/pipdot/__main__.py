@@ -22,9 +22,11 @@ from .version import version as __version__
 def get_args():
     _, tail = path.split(sys.argv[0])
     root, _ = path.splitext(tail)
-    prog = '{} -m {}'.format(sys.executable, __package__) \
-        if root == __name__ \
+    prog = (
+        '{} -m {}'.format(sys.executable, __package__)
+        if root == __name__
         else __package__
+    )
     parser = ArgumentParser(prog=prog, description=__doc__)
     parser.add_argument(
         '--version', '-V', action='version',
@@ -69,13 +71,13 @@ def get_args():
 
 @lru_cache(maxsize=None)
 def in_site(dist):
-    loc_path = Path(dist.locate_file(''))  # type: ignore
+    loc_path = Path(dist.locate_file(''))
     return any(loc_path == Path(x) for x in site.getsitepackages())
 
 
 @lru_cache(maxsize=None)
 def in_usersite(dist):
-    loc_path = Path(dist.locate_file(''))  # type: ignore
+    loc_path = Path(dist.locate_file(''))
     return loc_path == Path(site.getusersitepackages())
 
 
@@ -112,7 +114,8 @@ def _get_requires_extras(dists, dist_or_name):
             matched_extras = (
                 set(
                     m for m in extras
-                    if require.marker and require.marker.evaluate(environment={'extra': m})
+                    if require.marker
+                    and require.marker.evaluate(environment={'extra': m})
                 )
                 if extras
                 else set()
