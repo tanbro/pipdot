@@ -8,7 +8,6 @@ from argparse import ArgumentParser, FileType
 from functools import lru_cache, partial
 from os import path
 from pathlib import Path
-from platform import python_version
 
 try:
     from argparse import BooleanOptionalAction  # type: ignore
@@ -148,11 +147,9 @@ def perform(args):
         kdargs.update(path=args.path)
     dists = list(importlib_metadata.distributions(**kdargs))
 
-    requires_extras = partial(_get_requires_extras, dists)
-    installed = partial(_installed, dists)
-    if parse_version(python_version()) >= parse_version('3.8'):
-        requires_extras = lru_cache(requires_extras)
-        installed = lru_cache(installed)
+    requires_extras = lru_cache(maxsize=None)(
+        partial(_get_requires_extras, dists))
+    installed = lru_cache(maxsize=None)(partial(_installed, dists))
 
     context = {
         'distributions': dists,
