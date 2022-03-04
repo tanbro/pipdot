@@ -5,6 +5,7 @@ Generate a GraphViz dot file representing installed PyPI distributions
 import site
 import sys
 from argparse import ArgumentParser, FileType
+from copy import copy
 from functools import lru_cache, partial
 from os import path
 from pathlib import Path
@@ -39,13 +40,12 @@ def get_args():
              'This option can be specified multiple times for more than one locations.'
     )
     parser.add_argument(
-        '--local-only', action=BooleanOptionalAction, default=True,
-        help='If in a virtual-env that has global access, '
-             'do not list globally-installed packages.'
+        '--site', action=BooleanOptionalAction, default=True,
+        help='Include distributions in global site-packages directories.'
     )
     parser.add_argument(
-        '--user-only', action=BooleanOptionalAction, default=False,
-        help='Only output packages installed in user-site.'
+        '--user', action=BooleanOptionalAction, default=True,
+        help='Include distributions in user-specific site-packages directory.'
     )
     parser.add_argument(
         '--extras-label', action=BooleanOptionalAction, default=False,
@@ -114,7 +114,10 @@ def _get_requires_extras(dists, dist_or_name):
         rc_name = canonicalize_name(require.name)
         matched_extras = (
             set(
-                m for m in extras
+                # requires like:
+                # `SecretStorage (>=3.2) ; sys_platform == "linux"`
+                # will match every extra, we add a `''` to detect it.
+                m for m in copy(extras) + ['']
                 if require.marker
                 and require.marker.evaluate(environment={'extra': m})
             )

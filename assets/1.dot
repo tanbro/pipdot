@@ -1,14 +1,13 @@
 digraph {
     rankdir = "LR";
 
-    node [color=grey, style=dotted];
+    node [colorscheme=gnbu4, color=1, style=dotted];
     edge [color="#61c2c5", style="filled,setlinewidth(2)", fontcolor=grey];
-
 
 
     subgraph {
         // in site
-        node [shape=polygon,color="#61c2c5",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
+        node [shape=polygon,color=4,fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
         "requests" [label="requests\n2.27.1"];
         "docutils" [label="docutils\n0.18.1"];
         "pygments" [label="Pygments\n2.11.2"];
@@ -72,190 +71,116 @@ digraph {
         "pexpect" [label="pexpect\n4.8.0"];
         "ipykernel" [label="ipykernel\n6.9.1"];
     }
-
     subgraph {
         // in user site
-        node [shape=septagon,color="#e27dd6ff",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
+        node [shape=octagon,color=3,fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
     }
 
     subgraph {
         // all other installed
-        node [shape=octagon,color="#e27dd6ff",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
-        "pygments" [label="Pygments\n2.11.2"];
-        "secretstorage" [label="SecretStorage\n3.3.1"];
-        "pkg-resources" [label="pkg_resources\n0.0.0"];
+        node [shape=egg,color=2,fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
         "pipdot" [label="pipdot\n0.3.dev14+g327dc73.d20220304"];
     }
 
 
-    "requests" -> "urllib3" [
-            label="",];
-    "requests" -> "certifi" [
-            label="",];
-    "requests" -> "idna" [
-            label="use_chardet_on_py3, socks, security",];
-    "requests" -> "charset-normalizer" [
-            label="use_chardet_on_py3, socks, security",color=grey,style=dotted,];
-    "jupyter-client" -> "entrypoints" [
-            label="",];
-    "jupyter-client" -> "jupyter-core" [
-            label="",];
-    "jupyter-client" -> "nest-asyncio" [
-            label="",];
-    "jupyter-client" -> "python-dateutil" [
-            label="",];
-    "jupyter-client" -> "pyzmq" [
-            label="",];
-    "jupyter-client" -> "tornado" [
-            label="",];
-    "jupyter-client" -> "traitlets" [
-            label="",];
+    "requests" -> "urllib3" [];
+    "requests" -> "certifi" [];
+    "requests" -> "idna" [];
+    "requests" -> "charset-normalizer" [];
+    "jupyter-client" -> "entrypoints" [];
+    "jupyter-client" -> "jupyter-core" [];
+    "jupyter-client" -> "nest-asyncio" [];
+    "jupyter-client" -> "python-dateutil" [];
+    "jupyter-client" -> "pyzmq" [];
+    "jupyter-client" -> "tornado" [];
+    "jupyter-client" -> "traitlets" [];
     "jupyter-client" -> "ipykernel" [
             label="test",color=grey,style=dotted,];
     "jupyter-client" -> "ipython" [
             label="test",color=grey,style=dotted,];
-    "jupyter-client" -> "jedi" [
-            label="",];
-    "bleach" -> "packaging" [
-            label="",];
-    "bleach" -> "six" [
-            label="",];
-    "bleach" -> "webencodings" [
-            label="",];
-    "ipython" -> "backcall" [
-            label="",];
-    "ipython" -> "decorator" [
-            label="",];
-    "ipython" -> "jedi" [
-            label="",];
-    "ipython" -> "matplotlib-inline" [
-            label="",];
-    "ipython" -> "pickleshare" [
-            label="",];
-    "ipython" -> "prompt-toolkit" [
-            label="",];
-    "ipython" -> "pygments" [
-            label="",];
-    "ipython" -> "setuptools" [
-            label="",];
-    "ipython" -> "stack-data" [
-            label="",];
-    "ipython" -> "traitlets" [
-            label="",];
-    "ipython" -> "pexpect" [
-            label="all, test, test_extra, notebook, nbconvert, doc, black, terminal, kernel, qtconsole, nbformat, parallel",color=grey,style=dotted,];
-    "ipython" -> "colorama" [
-            label="",];
+    "jupyter-client" -> "jedi" [];
+    "bleach" -> "packaging" [];
+    "bleach" -> "six" [];
+    "bleach" -> "webencodings" [];
+    "ipython" -> "backcall" [];
+    "ipython" -> "decorator" [];
+    "ipython" -> "jedi" [];
+    "ipython" -> "matplotlib-inline" [];
+    "ipython" -> "pickleshare" [];
+    "ipython" -> "prompt-toolkit" [];
+    "ipython" -> "pygments" [];
+    "ipython" -> "setuptools" [];
+    "ipython" -> "stack-data" [];
+    "ipython" -> "traitlets" [];
+    "ipython" -> "pexpect" [];
+    "ipython" -> "colorama" [];
     "ipython" -> "ipykernel" [
-            label="all, kernel",color=grey,style=dotted,];
-    "pep517" -> "toml" [
-            label="",];
-    "pep517" -> "tomli" [
-            label="",];
-    "pep517" -> "importlib-metadata" [
-            label="",];
-    "pep517" -> "zipp" [
-            label="",];
-    "keyring" -> "importlib-metadata" [
-            label="",];
-    "keyring" -> "secretstorage" [
-            label="testing, docs",color=grey,style=dotted,];
-    "keyring" -> "jeepney" [
-            label="testing, docs",color=grey,style=dotted,];
-    "asttokens" -> "six" [
-            label="",];
-    "python-dateutil" -> "six" [
-            label="",];
-    "matplotlib-inline" -> "traitlets" [
-            label="",];
-    "twine" -> "pkginfo" [
-            label="",];
-    "twine" -> "readme-renderer" [
-            label="",];
-    "twine" -> "requests" [
-            label="",];
-    "twine" -> "requests-toolbelt" [
-            label="",];
-    "twine" -> "urllib3" [
-            label="",];
-    "twine" -> "tqdm" [
-            label="",];
-    "twine" -> "importlib-metadata" [
-            label="",];
-    "twine" -> "keyring" [
-            label="",];
-    "twine" -> "rfc3986" [
-            label="",];
-    "twine" -> "colorama" [
-            label="",];
-    "tqdm" -> "colorama" [
-            label="",];
+            label="kernel, all",color=grey,style=dotted,];
+    "pep517" -> "toml" [];
+    "pep517" -> "tomli" [];
+    "pep517" -> "importlib-metadata" [];
+    "pep517" -> "zipp" [];
+    "keyring" -> "importlib-metadata" [];
+    "keyring" -> "secretstorage" [];
+    "keyring" -> "jeepney" [];
+    "asttokens" -> "six" [];
+    "python-dateutil" -> "six" [];
+    "matplotlib-inline" -> "traitlets" [];
+    "twine" -> "pkginfo" [];
+    "twine" -> "readme-renderer" [];
+    "twine" -> "requests" [];
+    "twine" -> "requests-toolbelt" [];
+    "twine" -> "urllib3" [];
+    "twine" -> "tqdm" [];
+    "twine" -> "importlib-metadata" [];
+    "twine" -> "keyring" [];
+    "twine" -> "rfc3986" [];
+    "twine" -> "colorama" [];
+    "tqdm" -> "colorama" [];
     "tqdm" -> "twine" [
             label="dev",color=grey,style=dotted,];
     "tqdm" -> "wheel" [
             label="dev",color=grey,style=dotted,];
     "tqdm" -> "requests" [
             label="telegram",color=grey,style=dotted,];
-    "pyzmq" -> "cffi" [
-            label="",];
-    "readme-renderer" -> "bleach" [
-            label="",];
-    "readme-renderer" -> "docutils" [
-            label="",];
-    "readme-renderer" -> "pygments" [
-            label="",];
-    "cryptography" -> "cffi" [
-            label="",];
+    "pyzmq" -> "cffi" [];
+    "readme-renderer" -> "bleach" [];
+    "readme-renderer" -> "docutils" [];
+    "readme-renderer" -> "pygments" [];
+    "cryptography" -> "cffi" [];
     "cryptography" -> "twine" [
             label="docstest",color=grey,style=dotted,];
-    "stack-data" -> "executing" [
-            label="",];
-    "stack-data" -> "asttokens" [
-            label="",];
-    "stack-data" -> "pure-eval" [
-            label="",];
+    "stack-data" -> "executing" [];
+    "stack-data" -> "asttokens" [];
+    "stack-data" -> "pure-eval" [];
     "stack-data" -> "pygments" [
             label="tests",color=grey,style=dotted,];
-    "secretstorage" -> "cryptography" [
-            label="",];
-    "secretstorage" -> "jeepney" [
-            label="",];
+    "secretstorage" -> "cryptography" [];
+    "secretstorage" -> "jeepney" [];
     "urllib3" -> "cryptography" [
             label="secure",color=grey,style=dotted,];
     "urllib3" -> "idna" [
             label="secure",color=grey,style=dotted,];
     "urllib3" -> "certifi" [
             label="secure",color=grey,style=dotted,];
-    "jupyter-core" -> "traitlets" [
-            label="",];
+    "jupyter-core" -> "traitlets" [];
     "rfc3986" -> "idna" [
             label="idna2008",color=grey,style=dotted,];
-    "cffi" -> "pycparser" [
-            label="",];
-    "prompt-toolkit" -> "wcwidth" [
-            label="",];
-    "importlib-metadata" -> "zipp" [
-            label="",];
+    "cffi" -> "pycparser" [];
+    "prompt-toolkit" -> "wcwidth" [];
+    "importlib-metadata" -> "zipp" [];
     "importlib-metadata" -> "ipython" [
             label="perf",color=grey,style=dotted,];
     "importlib-metadata" -> "packaging" [
             label="testing",color=grey,style=dotted,];
-    "requests-toolbelt" -> "requests" [
-            label="",];
-    "autopep8" -> "pycodestyle" [
-            label="",];
-    "autopep8" -> "toml" [
-            label="",];
-    "build" -> "packaging" [
-            label="",];
-    "build" -> "pep517" [
-            label="",];
-    "build" -> "tomli" [
-            label="",];
-    "build" -> "colorama" [
-            label="",];
-    "build" -> "importlib-metadata" [
-            label="typing",];
+    "requests-toolbelt" -> "requests" [];
+    "autopep8" -> "pycodestyle" [];
+    "autopep8" -> "toml" [];
+    "build" -> "packaging" [];
+    "build" -> "pep517" [];
+    "build" -> "tomli" [];
+    "build" -> "colorama" [];
+    "build" -> "importlib-metadata" [];
     "build" -> "setuptools" [
             label="test",color=grey,style=dotted,];
     "build" -> "toml" [
@@ -263,34 +188,24 @@ digraph {
     "build" -> "wheel" [
             label="test",color=grey,style=dotted,];
     "setuptools" -> "wheel" [
-            label="testing, testing-integration",color=grey,style=dotted,];
+            label="testing-integration, testing",color=grey,style=dotted,];
     "setuptools" -> "pip" [
             label="testing",color=grey,style=dotted,];
     "setuptools" -> "build" [
-            label="testing, testing-integration",color=grey,style=dotted,];
+            label="testing-integration, testing",color=grey,style=dotted,];
     "setuptools" -> "tomli" [
             label="testing-integration",color=grey,style=dotted,];
-    "jedi" -> "parso" [
-            label="",];
+    "jedi" -> "parso" [];
     "jedi" -> "colorama" [
             label="testing",color=grey,style=dotted,];
-    "packaging" -> "pyparsing" [
-            label="",];
-    "pexpect" -> "ptyprocess" [
-            label="",];
-    "ipykernel" -> "debugpy" [
-            label="",];
-    "ipykernel" -> "ipython" [
-            label="",];
-    "ipykernel" -> "traitlets" [
-            label="",];
-    "ipykernel" -> "jupyter-client" [
-            label="",];
-    "ipykernel" -> "tornado" [
-            label="",];
-    "ipykernel" -> "matplotlib-inline" [
-            label="",];
-    "ipykernel" -> "nest-asyncio" [
-            label="",];
+    "packaging" -> "pyparsing" [];
+    "pexpect" -> "ptyprocess" [];
+    "ipykernel" -> "debugpy" [];
+    "ipykernel" -> "ipython" [];
+    "ipykernel" -> "traitlets" [];
+    "ipykernel" -> "jupyter-client" [];
+    "ipykernel" -> "tornado" [];
+    "ipykernel" -> "matplotlib-inline" [];
+    "ipykernel" -> "nest-asyncio" [];
 
 }

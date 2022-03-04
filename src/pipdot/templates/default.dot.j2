@@ -1,34 +1,38 @@
 digraph {
     rankdir = "LR";
 
-    node [color=grey, style=dotted];
+    node [colorscheme=gnbu4, color=1, style=dotted];
     edge [color="#61c2c5", style="filled,setlinewidth(2)", fontcolor=grey];
 
 {# nodes #}
 {%- set placed_nodes = [] %}
 
+{%- if options.site %}
     subgraph {
         // in site
-        node [shape=polygon,color="#61c2c5",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
-{%- for dist in distributions if canonicalize_name(dist.metadata.Name) not in placed_nodes and in_site(dist) %}
-    {%- do placed_nodes.append(dist.metadata.Name) %}
+        node [shape=polygon,color=4,fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
+    {%- for dist in distributions if canonicalize_name(dist.metadata.Name) not in placed_nodes and in_site(dist) %}
+        {%- do placed_nodes.append(canonicalize_name(dist.metadata.Name)) %}
         "{{ canonicalize_name(dist.metadata.Name) }}" [label="{{ dist.metadata.Name }}\n{{ dist.metadata.Version }}"];
-{%- endfor %}
+    {%- endfor %}
     }
+{%- endif %}
 
+{%- if options.user %}
     subgraph {
         // in user site
-        node [shape=septagon,color="#e27dd6ff",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
-{%- for dist in distributions if canonicalize_name(dist.metadata.Name) not in placed_nodes and in_usersite(dist) %}
-    {%- do placed_nodes.append(canonicalize_name(dist.metadata.Name)) %}
+        node [shape=octagon,color=3,fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
+    {%- for dist in distributions if canonicalize_name(dist.metadata.Name) not in placed_nodes and in_usersite(dist) %}
+        {%- do placed_nodes.append(canonicalize_name(dist.metadata.Name)) %}
         "{{ canonicalize_name(dist.metadata.Name) }}" [label="{{ dist.metadata.Name }}\n{{ dist.metadata.Version }}"];
-{%- endfor %}
+    {%- endfor %}
     }
+{%- endif %}
 
     subgraph {
         // all other installed
-        node [shape=octagon,color="#e27dd6ff",fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
-{%- for dist in distributions if canonicalize_name(dist.metadata.Name) not in placed_nodes %}
+        node [shape=egg,color=2,fillcolor="#d9e7ee",style="filled,setlinewidth(4)"];
+{%- for dist in distributions if canonicalize_name(dist.metadata.Name) not in placed_nodes and not in_site(dist) and not in_usersite(dist) %}
     {%- do placed_nodes.append(canonicalize_name(dist.metadata.Name)) %}
         "{{ canonicalize_name(dist.metadata.Name) }}" [label="{{ dist.metadata.Name }}\n{{ dist.metadata.Version }}"];
 {%- endfor %}
@@ -40,7 +44,7 @@ digraph {
     {%- for require_name, extras in requires_extras(dist).items() %}
         {%- if installed(require_name) or not options.installed_only %}
     "{{ canonicalize_name(dist.metadata.Name) }}" -> "{{ canonicalize_name(require_name) }}" [
-            {%- if extras and options.extras_label %}
+            {%- if options.extras_label and extras and '' not in extras %}
             label="{{ extras | reject('eq', '') | join(', ') }}",
             {%- endif -%}
             {%- if '' not in extras or not installed(require_name) -%}
