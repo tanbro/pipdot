@@ -5,6 +5,6 @@
     CIBUILDWHEEL=0
     python3 -m pip install --upgrade --no-compile -t ${VENDOR_DIR} -r requires/vendor.txt
     python3 -m pip freeze  --path ${VENDOR_DIR} | tee ${VENDOR_DIR}/freeze.txt
-    rm -rf ${VENDOR_DIR}/*.dist-info/ 
-    rm -rf ${VENDOR_DIR}/markupsafe/_speedups.* 
+    rm -fr ${VENDOR_DIR}/*.dist-info/ 
+    rm -fr ${VENDOR_DIR}/markupsafe/_speedups.* 
 )
