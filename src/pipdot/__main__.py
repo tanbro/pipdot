@@ -5,8 +5,8 @@ Generate a GraphViz dot file representing installed PyPI distributions
 import site
 import sys
 from argparse import ArgumentParser, FileType
-from copy import copy
 from functools import lru_cache, partial
+from itertools import chain
 from os import path
 from pathlib import Path
 
@@ -70,14 +70,14 @@ def get_args():
 
 @lru_cache(maxsize=None)
 def in_site(dist):
-    loc_path = Path(dist.locate_file(''))
-    return any(loc_path == Path(x) for x in site.getsitepackages())
+    pth = Path(dist.locate_file(''))
+    return any(pth == Path(x) for x in site.getsitepackages())
 
 
 @lru_cache(maxsize=None)
 def in_usersite(dist):
-    loc_path = Path(dist.locate_file(''))
-    return loc_path == Path(site.getusersitepackages())
+    pth = Path(dist.locate_file(''))
+    return pth == Path(site.getusersitepackages())
 
 
 def _installed(dists, name):
@@ -87,8 +87,9 @@ def _installed(dists, name):
 def _find_distribution(dists, name):
     from packaging.utils import canonicalize_name  # type: ignore
 
+    c_name = canonicalize_name(name)
     for d in dists:
-        if canonicalize_name(d.metadata['Name']) == canonicalize_name(name):
+        if canonicalize_name(d.metadata['Name']) == c_name:
             return d
 
 
@@ -116,26 +117,24 @@ def _get_requires_extras(dists, dist_or_name):
             set(
                 # requires like:
                 # `SecretStorage (>=3.2) ; sys_platform == "linux"`
-                # will match every extra, we add a `''` to detect it.
-                m for m in copy(extras) + ['']
+                # will match every extra, so we add a `''` to detect it.
+                s for s in chain(extras, ('',))
                 if require.marker
-                and require.marker.evaluate(environment={'extra': m})
+                and require.marker.evaluate(environment=dict(extra=s))
             )
             if extras
             else set()
         )
         if matched_extras:
             if rc_name in result:
-                result.update({
-                    rc_name: result[rc_name].union(matched_extras)
-                })
+                result[rc_name] = result[rc_name].union(matched_extras)
             else:
                 result[rc_name] = matched_extras
         else:
             if rc_name in result:
                 result[rc_name].add('')
             else:
-                result[rc_name] = set([''])
+                result[rc_name] = set(('',))
 
     return result
 
