@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## v0.3a1
+
+Date: 2022-2-28
+
+- Changes:
+
+  - Now it's no longer dependent on `pip` during setup.
+
+    The packaging/distribution features are now based on `importlib-metadata` and `packaging`,
+    and all dependencies are vendored.
+
+  - Command line interface was modified.
+
+  - `dot` template slightly optimized.
+
 ## v0.2
 
 date: 2022-2-28
