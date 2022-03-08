@@ -1,5 +1,5 @@
 """
-Copy from Python 3.9 stdlib's argparse.BooleanOptionalAction
+Copy from Python 3.10 stdlib's argparse.BooleanOptionalAction
 """
 
 from argparse import Action
@@ -27,7 +27,7 @@ class BooleanOptionalAction(Action):
                 _option_strings.append(option_string)
 
         if help is not None and default is not None:
-            help += ' (default: {})'.format(default)
+            help += " (default: %(default)s)"
 
         super().__init__(
             option_strings=_option_strings,
