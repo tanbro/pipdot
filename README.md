@@ -41,6 +41,12 @@ For help messages, execute:
 python -m pipdot --help
 ```
 
+And we can use it by docker:
+
+```bash
+docker run -it --rm liuxueyan/pipdot -p "your-python-site-dir"
+```
+
 [PyPI]: https://pypi.org/
 [pip]: https://pip.pypa.io/
 [GraphViz]: https://graphviz.org/
