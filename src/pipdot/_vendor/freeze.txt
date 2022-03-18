@@ -1,6 +1,6 @@
-importlib-metadata==4.11.2
+importlib-metadata==4.11.3
 Jinja2==3.0.3
-MarkupSafe==2.1.0
+MarkupSafe==2.1.1
 packaging==21.3
 pyparsing==3.0.7
 typing_extensions==4.1.1

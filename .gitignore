@@ -1,3 +1,12 @@
+# my ignores
+package-lock.json
+*.lock
+src/**/version.py
+.env.*
+*.env
+
+*~
+
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 
@@ -146,7 +155,7 @@ web_modules/
 
 # Nuxt.js build / generate output
 .nuxt
-dist/*
+dist
 
 # Gatsby files
 .cache/
@@ -194,7 +203,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/*
+dist/
 downloads/
 eggs/
 .eggs/
@@ -381,7 +390,7 @@ tramp
 
 # cask packages
 .cask/
-dist/*
+dist/
 
 # Flycheck
 flycheck_*.el
@@ -922,14 +931,3 @@ Backup of *.doc*
 
 # LibreOffice locks
 .~lock.*#
-
-# my ignores
-package-lock.json
-*.lock
-src/**/version.py
-.env.*
-*.env
-*~
-
-!dist/Dockerfile
-!dist/.dockerignore
