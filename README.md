@@ -11,7 +11,7 @@
 
 Generate a [GraphViz][] `dot` file representing installed [PyPI][] distributions.
 
-## Installation
+## Install
 
 ```bash
 pip install pipdot
@@ -21,7 +21,21 @@ It's a zero-dependency package.
 
 ## Usage
 
-To generate a [GraphViz][] `dot` file for distributions of current Python environment, we shall run:
+When installed, we can execute the program as:
+
+- either a standard-along command:
+
+  ```bash
+  pipdot
+  ```
+
+- or a python module:
+
+  ```bash
+  python -m pipdot
+  ```
+
+To generate a [GraphViz][] `dot` file for distributions of current Python environment:
 
 ```bash
 pipdot --extras-label 1.dot
@@ -37,16 +51,16 @@ We'll get something like:
 
 ![assets/1.dot.svg](assets/1.dot.svg)
 
-For help messages, execute:
-
-```bash
-python -m pipdot --help
-```
-
 And we can use it by docker, eg:
 
 ```bash
 docker run -it --rm -v "your-python-site-dir:/work" -w /work liuxueyan/pipdot -p .
+```
+
+For help messages, execute:
+
+```bash
+python -m pipdot --help
 ```
 
 [PyPI]: https://pypi.org/
