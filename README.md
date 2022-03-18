@@ -7,6 +7,7 @@
 [![PyPI - License](https://img.shields.io/pypi/l/pipdot)](https://pypi.org/project/pipdot/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipdot)](https://pypi.org/project/pipdot/)
 [![docker build](https://github.com/tanbro/pipdot/actions/workflows/docker-build.yml/badge.svg)](https://github.com/tanbro/pipdot/actions/workflows/docker-build.yml)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/liuxueyan/pipdot/latest)](https://hub.docker.com/repository/docker/liuxueyan/pipdot)
 
 Generate a [GraphViz][] `dot` file representing installed [PyPI][] distributions.
 
