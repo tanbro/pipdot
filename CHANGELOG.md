@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.3a2
+
+Date: 2022-3-18
+
+- New:
+  - Add "--python/-P" option
+  - Add Dockerfile and docker hub repository "liuxueyan/pipdot"
+
 ## v0.3a1
 
 Date: 2022-2-28
