@@ -167,7 +167,8 @@ def perform(args):
     dists = list(importlib_metadata.distributions(**kdargs))
 
     requires_extras = lru_cache(maxsize=None)(
-        partial(_get_requires_extras, dists))
+        partial(_get_requires_extras, dists)
+    )
     installed = lru_cache(maxsize=None)(partial(_installed, dists))
 
     context = {
