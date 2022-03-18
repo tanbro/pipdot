@@ -43,10 +43,10 @@ For help messages, execute:
 python -m pipdot --help
 ```
 
-And we can use it by docker:
+And we can use it by docker, eg:
 
 ```bash
-docker run -it --rm liuxueyan/pipdot -p "your-python-site-dir"
+docker run -it --rm -v "your-python-site-dir:/work" -w /work liuxueyan/pipdot -p .
 ```
 
 [PyPI]: https://pypi.org/
