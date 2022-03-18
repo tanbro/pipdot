@@ -38,12 +38,13 @@ def get_args():
     )
     parser.add_argument(
         '--python', '-P', type=str,
-        help='Report the distributions of this python executable. '
-             '"--path/-p" option will not affect if this option was set, .'
+        help='Report the distributions for this python executable. '
+             '"--path/-p" option will not affect if this option was set. '
+             'The program check specified python\'s "sys.path" by an actual execution, so you can not use it in a container.'
     )
     parser.add_argument(
         '--path', '-p', action='append',
-        help='If path is set, only report the distributions present at the specified location. '
+        help='Report the distributions present at the specified location. '
              'This option will not affect if "--python/-P" was set. '
              'This option can be specified multiple times for more than one locations.'
     )
