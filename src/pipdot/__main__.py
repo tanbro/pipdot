@@ -2,6 +2,7 @@
 Generate a GraphViz dot file representing installed PyPI distributions
 """
 
+import json
 import site
 import sys
 from argparse import ArgumentParser, FileType
@@ -9,6 +10,7 @@ from functools import lru_cache, partial
 from itertools import chain
 from os import path
 from pathlib import Path
+from subprocess import check_output
 
 try:
     from argparse import BooleanOptionalAction  # type: ignore
@@ -35,8 +37,14 @@ def get_args():
         )
     )
     parser.add_argument(
+        '--python', '-P', type=str,
+        help='Report the distributions of this python executable. '
+             '"--path/-p" option will not affect if this option was set, .'
+    )
+    parser.add_argument(
         '--path', '-p', action='append',
         help='If path is set, only report the distributions present at the specified location. '
+             'This option will not affect if "--python/-P" was set. '
              'This option can be specified multiple times for more than one locations.'
     )
     parser.add_argument(
@@ -144,6 +152,13 @@ def perform(args):
     import jinja2  # type: ignore
     from packaging.requirements import Requirement  # type: ignore
     from packaging.utils import canonicalize_name  # type: ignore
+
+    if args.python:
+        output = check_output([
+            args.python, '-c', 'import json, sys; json.dump(sys.path, sys.stdout)'
+        ])
+        sys_paths = json.loads(output)
+        args.path = [p for p in sys_paths if path.isdir(p)]
 
     kdargs = dict()
     if args.path:
