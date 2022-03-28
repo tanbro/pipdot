@@ -1,8 +1,8 @@
 FROM python:alpine
 
-COPY dist/ /opt/pyproject-dist/
-
-RUN pip install --no-cache-dir --disable-pip-version-check pipdot --no-index --find-links file:///opt/pyproject-dist/
+RUN --mount=type=bind,source=dist,target=/root/dist/ \
+    pip install --disable-pip-version-check pipdot --no-index --find-links file:///root/dist/ && \
+    rm -rf /root/dist/
 
 ENTRYPOINT [ "pipdot" ]
 CMD [ ]
